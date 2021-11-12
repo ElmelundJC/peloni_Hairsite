@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-light bg-transparent navbar-expand-md fixed-top">
+        <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <a href="#" class="navbar-brand"><img src="images/clipart658178.png" width="30" height="30" alt=""></a>
+          <ul class="navbar-nav" id="navScrollspy">
+            <li class="nav-item">
+              <a class="nav-link" href="#description">Om Joan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Ydelser og priser</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#showcase">Produkter</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#news">Nyheder</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Kontakt</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#booking">Booking</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    <section>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              
+            </div>
+          </div>
+    </section>
+
+    <section id="reviews" class="container">
+        <h2 class="display-6">Anmeldelser</h2>
+        <div class="row">
+            <div class="col-12 col-md-6 col-xl-3">
+                <blockquote class="blockquote">
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor!"</p>
+                    <footer class="blockquote-footer">Mille Johnsen <time datetime="2020-06-11T14:35">(11 Juni 2020 14:35)</time></footer>
+                </blockquote>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <blockquote class="blockquote">
+                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."</p>
+                    <footer class="blockquote-footer">Hanne Østerskov <time datetime="2020-07-09T19:12">(09 Juli 2020 19:12)</time></footer>
+                </blockquote>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <blockquote class="blockquote">
+                    <p>"Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur."</p>
+                    <footer class="blockquote-footer">Anna Foster <time datetime="2020-09-01T11:19">(01 maj 2020 11:19)</time></footer>
+                </blockquote>
+            </div> 
+            <div class="col-12 col-md-6 col-xl-3">
+                <blockquote class="blockquote">
+                    <p>"Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam."</p>
+                    <footer class="blockquote-footer">Andrea Rasmussen <time datetime="2020-08-12T08:43">(12 November 2020 8:43)</time></footer>
+                </blockquote>
+            </div>    
+        </div>
+    </section>
+
+    <section>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              
+            </div>
+          </div>
+    </section>
+
+    <section class="bg-secondary">
+        <div class="container">
+            <form class="py-5 text-white">
+                <h2 class="text-center">Få tilsendt vores nyhedsbrev</h2>
+                <p>Modtag de nyeste tilbud og få nyheder om alt der rør sig</p>
+                    <div class="row">
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="input-name" class="sr-only">Navn:</label>
+                                <input type="text" class="form-control" placeholder="Fulde navn" id="input-name">
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="form-group">
+                                <label for="input-email" class="sr-only">Email:</label>
+                                <input type="email" class="form-control" placeholder="mail@example.com" id="input-email">
+                            </div>
+                        </div>
+                    </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="terms">
+                        Jeg har læst og forstået <a href="#" data-toggle="modal" data-target="#modal">vilkår og betingelser</a>
+                    </label>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <small class="form-text">Du kan framelde dig når du vil</small>
+                    <button type="submit" class="btn btn-dark">Tilmeld dig</button>
+                </div>
+            </form>
+            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTitle">Vilkår og betingelser</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas feugiat, urna ut pharetra ultricies, augue tellus euismod turpis, vitae semper ipsum augue a velit. Pellentesque id finibus velit. Ut sagittis maximus maximus. In aliquet enim sed turpis mollis ornare. Suspendisse elementum a magna eu luctus. Etiam tincidunt mattis mauris, non lobortis nulla tempor in. Sed lacinia metus viverra, scelerisque enim sed, sollicitudin magna. Sed non augue sit amet nisl tincidunt ultrices. Praesent nec lacus eget tortor ultricies pulvinar. Praesent euismod ut lorem sit amet bibendum.</p>
+                            <p>Pellentesque vitae convallis magna. Morbi non elementum mi. Suspendisse at mollis arcu, eu tempus tellus. Aenean fringilla eleifend nisl. Aliquam erat volutpat. Sed a tortor quis tortor convallis mattis. Nunc congue massa vitae lectus dictum, a mattis metus dignissim.</p>
+                            <p>Nulla feugiat, lorem sit amet vehicula hendrerit, velit eros pellentesque est, at dictum elit risus id diam. In ante lorem, blandit vel dui in, sagittis laoreet erat. Proin dictum sit amet urna ut placerat. Pellentesque laoreet, dolor vitae facilisis feugiat, quam quam gravida elit, nec sagittis orci metus at leo. In scelerisque felis vel neque lobortis ullamcorper. Praesent quis sagittis neque, nec eleifend neque. Suspendisse at consectetur eros. Mauris lectus libero, molestie vel dapibus sit amet, luctus gravida ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero neque, pretium quis malesuada eget, congue ac mauris.</p>
+                            <p>Aenean quis tristique libero. Vestibulum sagittis, sapien gravida lobortis posuere, diam arcu auctor libero, at tempor mauris nulla vel odio. Phasellus semper eros rutrum mi scelerisque interdum. Maecenas euismod est sit amet justo vestibulum bibendum. Etiam scelerisque sodales nisi nec efficitur. Pellentesque arcu mauris, accumsan eget mollis at, ultrices id ante. Duis in mi eget nisi euismod gravida. Cras pharetra sollicitudin elit, vel eleifend felis dignissim non. Integer leo ex, feugiat eu lorem egestas, mollis suscipit nulla. Duis quis tellus nulla. Maecenas risus ipsum, fringilla at orci sit amet, mattis fringilla orci. Vivamus odio tellus, ornare eu leo id, pellentesque sodales ante.</p>
+                            <p>Sed laoreet ut ligula eget fringilla. Suspendisse dapibus dui at ex dictum hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi efficitur ac purus eget dignissim. Aliquam ultrices, orci finibus sollicitudin tempus, elit metus scelerisque magna, a rhoncus justo nisl vitae lectus. Nam mollis sed est ut ullamcorper. Curabitur consequat feugiat erat quis molestie. Fusce suscipit sem et nulla dignissim, id malesuada felis laoreet. Cras leo ligula, vulputate id mi ac, gravida porta sem. Mauris ullamcorper lectus ac eleifend elementum. Ut id velit consequat, facilisis leo vitae, volutpat nisi. Nunc hendrerit libero mi. Integer scelerisque mattis neque placerat condimentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla eu odio mi. Duis interdum vulputate turpis pretium congue.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              
+            </div>
+          </div>
+    </section>
+
+    
+    
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+</body>
+</html>
