@@ -1,0 +1,34 @@
+body {
+    background: url(../images/pexels-tim-mossholder-1049688.jpg) center center fixed;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+   }
+   
+   #navbarNav {
+       font-weight: bold;
+   }
+   
+   
+   #top {
+       margin-top: 300px;
+       text-align: center;
+       opacity: 0.3;
+       
+   }
+   
+   #top p {
+       font-weight: normal;
+   }
+   
+   #footer {
+       position: fixed;
+               padding: 10px 10px 0px 10px;
+               bottom: 0;
+               width: 100%;
+               /* Height of the footer*/ 
+               height: 40px;
+               background: grey;
+   }
