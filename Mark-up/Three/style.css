@@ -1,0 +1,16 @@
+body {
+    background-color: whitesmoke;
+}
+
+.jumbotron {
+    margin-top: 70px;
+    background: url(images/pexels-pixabay-247322.jpg) center center fixed;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 650px;
+  
+}
+
