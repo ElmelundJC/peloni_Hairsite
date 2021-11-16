@@ -20,13 +20,15 @@ body {
    }
 
    .container {
-    
        margin:auto ;
        margin-top: 200px;
        width: 95%;
        height: 600px;
-       
- 
+       color: white;
+   }
+   
+   .blockquote-footer {
+       color: white;
    }
 
   #portrait {
@@ -35,15 +37,9 @@ body {
 
   }
 
-  .blockquote {
-      margin-top: 25px;
-      color: black;
-  }
+  
 
-  .blockquote-footer {
-      color: black;
-  }
-   
+ 
    #top p {
        font-weight: normal;
    }
