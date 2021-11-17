@@ -1,0 +1,61 @@
+body {
+    background: url(../images/pexels-tim-mossholder-1049688.jpg) center center fixed;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+}
+#navbarNav {
+    font-weight: bold;
+}
+
+.navbar{
+    background-color: rgba(50, 58, 63, 1);
+    color: #fff;
+    z-index: 1;
+}
+
+
+#top {
+    margin-top: 300px;
+    text-align: center;
+    opacity: 0.3;
+    
+}
+
+#top p {
+    font-weight: normal;
+}
+
+#main{    
+    margin-top: 9%;
+    opacity: 0.6;
+}
+
+#main .headercontent h1{
+    padding: 3rem;
+}
+
+#main .headercontent p{
+    padding: 0 200px;
+}
+
+.mapheader {
+    padding-top: 2rem;
+    padding-left: 5rem;
+}
+
+.info-text {
+    padding: 0 5rem;
+}
+
+#footer {
+     position: fixed;
+     padding: 10px 10px 0px 10px;
+     bottom: 0;
+     width: 100%;
+            /* Height of the footer*/ 
+     height: 40px;
+     background: grey;
+}
