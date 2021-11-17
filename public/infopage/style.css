@@ -28,34 +28,34 @@ body {
     font-weight: normal;
 }
 
-#main{    
-    margin-top: 9%;
-    opacity: 0.6;
+.headercontent{
+    margin-top: 6%;
+    opacity: 0.8;
 }
 
-#main .headercontent h1{
+.headercontent .col .card h3 {
+    text-align: left;
+    padding-left: 10%;
+}
+
+.headercontent .col .card br {
+    border: 1px solid #000;
+}
+
+.headercontent h1{
     padding: 3rem;
 }
 
-#main .headercontent p{
-    padding: 0 200px;
+.headercontent p{
+    padding: 0 10%;
 }
 
-.mapheader {
-    padding-top: 2rem;
-    padding-left: 5rem;
+.mapsection{
+    background: rgba(50, 58, 63, 1);
+    color: #fff;
 }
 
-.info-text {
-    padding: 0 5rem;
-}
 
 #footer {
-     position: fixed;
-     padding: 10px 10px 0px 10px;
-     bottom: 0;
-     width: 100%;
-            /* Height of the footer*/ 
-     height: 40px;
-     background: grey;
+
 }
