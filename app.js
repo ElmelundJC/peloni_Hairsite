@@ -11,7 +11,7 @@ const about = fs.readFileSync(__dirname + "/public/about/about.html", "utf-8");
 const services = fs.readFileSync(__dirname + "/public/services/services.html", "utf-8");
 const products = fs.readFileSync(__dirname + "/public/products/products2.html", "utf-8");
 
-const newspage = fs.readFileSync(__dirname + "/public/newspage/newspage.html", "utf-8");
+const infopage = fs.readFileSync(__dirname + "/public/infopage/infopage.html", "utf-8");
 const bookingpage = fs.readFileSync(__dirname + "/public/bookingspage/bookingspage.html", "utf-8");
 
 
@@ -32,8 +32,8 @@ app.get("/products", (req, res) => {
     res.send(products);
 })
 
-app.get("/nyheder", (req, res) => {
-    res.send(newspage);
+app.get("/info", (req, res) => {
+    res.send(infopage);
 });
 
 app.get("/booking", (req, res) => {
