@@ -29,7 +29,7 @@ body {
 }
 
 .headercontent{
-    margin-top: 6%;
+    margin-top: 7%;
     opacity: 0.8;
 }
 
@@ -50,12 +50,75 @@ body {
     padding: 0 10%;
 }
 
+.maptext {
+    margin: 3% 3%;
+}
+
+.icon-links{
+    padding: 9vmin 9vmin 1vmin 0vmin;
+    font-size: 1rem;
+}
+
 .mapsection{
     background: rgba(50, 58, 63, 1);
     color: #fff;
+    margin-bottom: -5px;
+} 
+
+.mapgoogle iframe{
+
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.section-map {
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+}
+
+.infotable{
+    list-style-type: none;
+    padding-left: 0px;
 }
 
 
-#footer {
+.footer-section {
+    background: rgb(37, 36, 36);
+    color: #fff;
+}
 
+.footer-infotable{
+    list-style-type: none;
+
+    padding-left: 3rem;
+    padding-top: 3rem;
+}
+
+#table-mail {
+    color: deepskyblue;
+}
+
+.footer-hours {
+    padding-top: 3rem;
+    padding-left: 3rem;
+}
+
+.footer-icon-links {
+    padding-top: 3rem;
+    padding-left: 3rem;
+}
+
+.footer-img img{
+    padding-top: 6rem;
+    padding-left: 3rem;
+    padding-bottom: 3rem;
+    width: 300px;
+    z-index: 1;
+}
+
+.footer-copyright {
+    text-align: center;
 }
