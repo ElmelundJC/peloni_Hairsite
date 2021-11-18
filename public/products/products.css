@@ -19,10 +19,14 @@ body {
        
    }
 
-  .section {
-      margin-top: 100px;
-      color: white;
-  }
+#product {
+    margin-top: 150px;
+}
+
+.card {
+    margin:auto;
+    padding: 10px;
+}
 
  
 

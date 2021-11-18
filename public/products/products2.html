@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
         integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="../products/products.css">
-
+    <script type="text/javascript" src="../products/products.js"></script>
     <title>Producter</title>
 </head>
 
@@ -84,7 +84,7 @@
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="modalTitle">Terms and conditions</h5>
+                                    <h5 class="modal-title" id="modalTitle">Indsæt produktinformation</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -92,18 +92,27 @@
                                 <div class="modal-body">
                                     <img class="card-img-top" src="../images/product1.jpg" height="185px" width="185px"
                                         alt="Card image cap">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas feugiat, urna
-                                        ut pharetra ultricies, augue tellus euismod turpis, vitae semper ipsum augue a
-                                        velit. Pellentesque id finibus velit. Ut sagittis maximus maximus. In aliquet
-                                        enim sed turpis mollis ornare. Suspendisse elementum a magna eu luctus. Etiam
-                                        tincidunt mattis mauris, non lobortis nulla tempor in. Sed lacinia metus
-                                        viverra, scelerisque enim sed, sollicitudin magna. Sed non augue sit amet nisl
-                                        tincidunt ultrices. Praesent nec lacus eget tortor ultricies pulvinar. Praesent
-                                        euismod ut lorem sit amet bibendum.</p>
+                                    <p></p>
+                                    <button type="button" class="btn btn-secondary" onclick="importData()">Vælg
+                                        billede</button>
+                                    <form action="">
+                                        <div class="form-group">
+                                            <label for="editDescription">Beskrivelse</label>
+                                            <input type="text" name="description" class="form-control"
+                                                id="editDescription" placeholder="Beskrivelse" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="editPrice">Pris</label>
+                                            <input type="text" name="price" class="form-control" id="editPrice"
+                                                placeholder="Pris" required>
+                                        </div>
+                                    </form>
 
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Luk</button>
+                                    <button type="button" id="saveModalButton" class="btn btn-primary"
+                                        data-dismiss="modal">Gem ændringer</button>
                                 </div>
                             </div>
                         </div>

@@ -24,8 +24,11 @@ body {
       color: white;
   }
 
- 
+  .row {
+      text-align: center;
+  }
 
+  
   #image {
       height: 80%;
   }
