@@ -11,7 +11,10 @@ body {
        font-weight: bold;
    }
    
-   
+   .jumbotron {
+       margin-top: 100px;
+       height: fit-content;
+   }
    #top {
        margin-top: 300px;
        text-align: center;

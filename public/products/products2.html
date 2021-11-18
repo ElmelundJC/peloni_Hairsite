@@ -42,235 +42,498 @@
         </div>
     </nav>
 
-    <section id="product">
-        <h2 class="display-4 text-center text-white">Producenter</h2>
-        <br>
-        <div class="row">
-            <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <a href="/"><img src="../images/product1.jpg" alt="img"></a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <a href="/"><img src="../images/product2.jpg" alt="img"></a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <a href="/"><img src="../images/product3.jpg" alt="img"></a>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <a href="/"><img src="../images/product4.jpg" alt="img"></a>
+
+
+    <section class="product">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h2 class="display-4 text-center">Producenter</h2>
+                <br>
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                        <a href="/"><img src="../images/product1.jpg" alt="img"></a>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                        <a href="/"><img src="../images/product2.jpg" alt="img"></a>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                        <a href="/"><img src="../images/product3.jpg" alt="img"></a>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                        <a href="/"><img src="../images/product4.jpg" alt="img"></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="product">
-        <h2 class="display-4 text-center text-white">Produkter</h2>
-        <br>
-        <div class="row">
-            <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <div class="card bg-light mb-3" style="width: 18rem;">
-                    <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <a href="#" data-toggle="modal" data-target="#modal">
-                            <p class="card-text">Kerastase</p>
-                        </a>
+    <br>
+    <br>
+    <br>
+    <br>
 
-                    </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">Til sart hår</li>
-                        <li class="list-group-item">75,-</li>
-                    </ul>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h2 class="display-4 text-center">Produkter</h2>
+            <br>
+            <div class="row">
+                <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                    <div class="card bg-light mb-3" style="width: 18rem;">
+                        <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <a href="#" data-toggle="modal" data-target="#modal">
+                                <p class="card-text">Kerastase</p>
+                            </a>
 
-                    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle"
-                        aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="modalTitle">Indsæt produktinformation</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <img class="card-img-top" src="../images/product1.jpg" height="185px" width="185px"
-                                        alt="Card image cap">
-                                    <p></p>
-                                    <button type="button" class="btn btn-secondary" onclick="importData()">Vælg
-                                        billede</button>
-                                    <form action="">
-                                        <div class="form-group">
-                                            <label for="editDescription">Beskrivelse</label>
-                                            <input type="text" name="description" class="form-control"
-                                                id="editDescription" placeholder="Beskrivelse" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="editPrice">Pris</label>
-                                            <input type="text" name="price" class="form-control" id="editPrice"
-                                                placeholder="Pris" required>
-                                        </div>
-                                    </form>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">Til sart hår</li>
+                            <li class="list-group-item">75,-</li>
+                        </ul>
 
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Luk</button>
-                                    <button type="button" id="saveModalButton" class="btn btn-primary"
-                                        data-dismiss="modal">Gem ændringer</button>
+                        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalTitle">Indsæt produktinformation</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img class="card-img-top" src="../images/product1.jpg" height="185px"
+                                            width="185px" alt="Card image cap">
+                                        <p></p>
+                                        <button type="button" class="btn btn-secondary" onclick="importData()">Vælg
+                                            billede</button>
+                                        <form action="">
+                                            <div class="form-group">
+                                                <label for="editDescription">Beskrivelse</label>
+                                                <input type="text" name="description" class="form-control"
+                                                    id="editDescription" placeholder="Beskrivelse" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="editPrice">Pris</label>
+                                                <input type="text" name="price" class="form-control" id="editPrice"
+                                                    placeholder="Pris" required>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Luk</button>
+                                        <button type="button" id="saveModalButton" class="btn btn-primary"
+                                            data-dismiss="modal">Gem ændringer</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <div class="card bg-light mb-3" style="width: 18rem;">
-                    <img class="card-img-top" src="../images/product2.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <a href="#" data-toggle="modal" data-target="#modal">
-                            <p class="card-text">Kerastase</p>
-                        </a>
+                <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                    <div class="card bg-light mb-3" style="width: 18rem;">
+                        <img class="card-img-top" src="../images/product2.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <a href="#" data-toggle="modal" data-target="#modal">
+                                <p class="card-text">Kerastase</p>
+                            </a>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">Til sart hår</li>
+                            <li class="list-group-item">75,-</li>
+                        </ul>
                     </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">Til sart hår</li>
-                        <li class="list-group-item">75,-</li>
-                    </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                    <div class="card bg-light mb-3" style="width: 18rem;">
+                        <img class="card-img-top" src="../images/product3.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <a href="#" data-toggle="modal" data-target="#modal">
+                                <p class="card-text">Kerastase</p>
+                            </a>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">Til sart hår</li>
+                            <li class="list-group-item">75,-</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                    <div class="card bg-light mb-3" style="width: 18rem;">
+                        <img class="card-img-top" src="../images/product4.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <a href="#" data-toggle="modal" data-target="#modal">
+                                <p class="card-text">Kerastase</p>
+                            </a>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">Til sart hår</li>
+                            <li class="list-group-item">75,-</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <div class="card bg-light mb-3" style="width: 18rem;">
-                    <img class="card-img-top" src="../images/product3.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <a href="#" data-toggle="modal" data-target="#modal">
-                            <p class="card-text">Kerastase</p>
-                        </a>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                    <div class="card bg-light mb-3" style="width: 18rem;">
+                        <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <a href="#" data-toggle="modal" data-target="#modal">
+                                <p class="card-text">Kerastase</p>
+                            </a>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">Til sart hår</li>
+                            <li class="list-group-item">75,-</li>
+                        </ul>
                     </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">Til sart hår</li>
-                        <li class="list-group-item">75,-</li>
-                    </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                    <div class="card bg-light mb-3" style="width: 18rem;">
+                        <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <a href="#" data-toggle="modal" data-target="#modal">
+                                <p class="card-text">Kerastase</p>
+                            </a>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">Til sart hår</li>
+                            <li class="list-group-item">75,-</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                    <div class="card bg-light mb-3" style="width: 18rem;">
+                        <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <a href="#" data-toggle="modal" data-target="#modal">
+                                <p class="card-text">Kerastase</p>
+                            </a>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">Til sart hår</li>
+                            <li class="list-group-item">75,-</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                    <div class="card bg-light mb-3" style="width: 18rem;">
+                        <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <a href="#" data-toggle="modal" data-target="#modal">
+                                <p class="card-text">Kerastase</p>
+                            </a>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">Til sart hår</li>
+                            <li class="list-group-item">75,-</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <div class="card bg-light mb-3" style="width: 18rem;">
-                    <img class="card-img-top" src="../images/product4.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <a href="#" data-toggle="modal" data-target="#modal">
-                            <p class="card-text">Kerastase</p>
-                        </a>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <br>
+            <div class="row">
+                <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                    <div class="card bg-light mb-3" style="width: 18rem;">
+                        <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <a href="#" data-toggle="modal" data-target="#modal">
+                                <p class="card-text">Kerastase</p>
+                            </a>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">Til sart hår</li>
+                            <li class="list-group-item">75,-</li>
+                        </ul>
                     </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">Til sart hår</li>
-                        <li class="list-group-item">75,-</li>
-                    </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                    <div class="card bg-light mb-3" style="width: 18rem;">
+                        <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <a href="#" data-toggle="modal" data-target="#modal">
+                                <p class="card-text">Kerastase</p>
+                            </a>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">Til sart hår</li>
+                            <li class="list-group-item">75,-</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                    <div class="card bg-light mb-3" style="width: 18rem;">
+                        <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <a href="#" data-toggle="modal" data-target="#modal">
+                                <p class="card-text">Kerastase</p>
+                            </a>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">Til sart hår</li>
+                            <li class="list-group-item">75,-</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                    <div class="card bg-light mb-3" style="width: 18rem;">
+                        <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <a href="#" data-toggle="modal" data-target="#modal">
+                                <p class="card-text">Kerastase</p>
+                            </a>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">Til sart hår</li>
+                            <li class="list-group-item">75,-</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <div class="card bg-light mb-3" style="width: 18rem;">
-                    <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <a href="#" data-toggle="modal" data-target="#modal">
-                            <p class="card-text">Kerastase</p>
-                        </a>
+        </div>
+    </div>
+
+
+
+    <section class="product">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h2 class="display-4 text-center">Produkter</h2>
+                <br>
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                        <div class="card bg-light mb-3" style="width: 18rem;">
+                            <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <a href="#" data-toggle="modal" data-target="#modal">
+                                    <p class="card-text">Kerastase</p>
+                                </a>
+
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">Til sart hår</li>
+                                <li class="list-group-item">75,-</li>
+                            </ul>
+
+                            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalTitle">Indsæt produktinformation</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img class="card-img-top" src="../images/product1.jpg" height="185px"
+                                                width="185px" alt="Card image cap">
+                                            <p></p>
+                                            <button type="button" class="btn btn-secondary" onclick="importData()">Vælg
+                                                billede</button>
+                                            <form action="">
+                                                <div class="form-group">
+                                                    <label for="editDescription">Beskrivelse</label>
+                                                    <input type="text" name="description" class="form-control"
+                                                        id="editDescription" placeholder="Beskrivelse" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="editPrice">Pris</label>
+                                                    <input type="text" name="price" class="form-control" id="editPrice"
+                                                        placeholder="Pris" required>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Luk</button>
+                                            <button type="button" id="saveModalButton" class="btn btn-primary"
+                                                data-dismiss="modal">Gem ændringer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">Til sart hår</li>
-                        <li class="list-group-item">75,-</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <div class="card bg-light mb-3" style="width: 18rem;">
-                    <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <a href="#" data-toggle="modal" data-target="#modal">
-                            <p class="card-text">Kerastase</p>
-                        </a>
+                    <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                        <div class="card bg-light mb-3" style="width: 18rem;">
+                            <img class="card-img-top" src="../images/product2.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <a href="#" data-toggle="modal" data-target="#modal">
+                                    <p class="card-text">Kerastase</p>
+                                </a>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">Til sart hår</li>
+                                <li class="list-group-item">75,-</li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">Til sart hår</li>
-                        <li class="list-group-item">75,-</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <div class="card bg-light mb-3" style="width: 18rem;">
-                    <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <a href="#" data-toggle="modal" data-target="#modal">
-                            <p class="card-text">Kerastase</p>
-                        </a>
+                    <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                        <div class="card bg-light mb-3" style="width: 18rem;">
+                            <img class="card-img-top" src="../images/product3.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <a href="#" data-toggle="modal" data-target="#modal">
+                                    <p class="card-text">Kerastase</p>
+                                </a>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">Til sart hår</li>
+                                <li class="list-group-item">75,-</li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">Til sart hår</li>
-                        <li class="list-group-item">75,-</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <a href="#" data-toggle="modal" data-target="#modal">
-                            <p class="card-text">Kerastase</p>
-                        </a>
+                    <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                        <div class="card bg-light mb-3" style="width: 18rem;">
+                            <img class="card-img-top" src="../images/product4.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <a href="#" data-toggle="modal" data-target="#modal">
+                                    <p class="card-text">Kerastase</p>
+                                </a>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">Til sart hår</li>
+                                <li class="list-group-item">75,-</li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">Til sart hår</li>
-                        <li class="list-group-item">75,-</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <div class="card bg-light mb-3" style="width: 18rem;">
-                    <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <a href="#" data-toggle="modal" data-target="#modal">
-                            <p class="card-text">Kerastase</p>
-                        </a>
+
+
+                    <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                        <div class="card bg-light mb-3" style="width: 18rem;">
+                            <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <a href="#" data-toggle="modal" data-target="#modal">
+                                    <p class="card-text">Kerastase</p>
+                                </a>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">Til sart hår</li>
+                                <li class="list-group-item">75,-</li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">Til sart hår</li>
-                        <li class="list-group-item">75,-</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <div class="card bg-light mb-3" style="width: 18rem;">
-                    <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <a href="#" data-toggle="modal" data-target="#modal">
-                            <p class="card-text">Kerastase</p>
-                        </a>
+                    <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                        <div class="card bg-light mb-3" style="width: 18rem;">
+                            <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <a href="#" data-toggle="modal" data-target="#modal">
+                                    <p class="card-text">Kerastase</p>
+                                </a>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">Til sart hår</li>
+                                <li class="list-group-item">75,-</li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">Til sart hår</li>
-                        <li class="list-group-item">75,-</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <div class="card border-light mb-3" style="width: 18rem;">
-                    <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <a href="#" data-toggle="modal" data-target="#modal">
-                            <p class="card-text">Kerastase</p>
-                        </a>
+                    <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                        <div class="card bg-light mb-3" style="width: 18rem;">
+                            <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <a href="#" data-toggle="modal" data-target="#modal">
+                                    <p class="card-text">Kerastase</p>
+                                </a>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">Til sart hår</li>
+                                <li class="list-group-item">75,-</li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">Til sart hår</li>
-                        <li class="list-group-item">75,-</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <div class="card border-light mb-3" style="width: 18rem;">
-                    <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <a href="#" data-toggle="modal" data-target="#modal">
-                            <p class="card-text">Kerastase</p>
-                        </a>
+                    <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                        <div class="card bg-light mb-3" style="width: 18rem;">
+                            <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <a href="#" data-toggle="modal" data-target="#modal">
+                                    <p class="card-text">Kerastase</p>
+                                </a>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">Til sart hår</li>
+                                <li class="list-group-item">75,-</li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">Til sart hår</li>
-                        <li class="list-group-item">75,-</li>
-                    </ul>
+
+
+                    <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                        <div class="card bg-light mb-3" style="width: 18rem;">
+                            <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <a href="#" data-toggle="modal" data-target="#modal">
+                                    <p class="card-text">Kerastase</p>
+                                </a>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">Til sart hår</li>
+                                <li class="list-group-item">75,-</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                        <div class="card bg-light mb-3" style="width: 18rem;">
+                            <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <a href="#" data-toggle="modal" data-target="#modal">
+                                    <p class="card-text">Kerastase</p>
+                                </a>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">Til sart hår</li>
+                                <li class="list-group-item">75,-</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                        <div class="card border-light mb-3" style="width: 18rem;">
+                            <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <a href="#" data-toggle="modal" data-target="#modal">
+                                    <p class="card-text">Kerastase</p>
+                                </a>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">Til sart hår</li>
+                                <li class="list-group-item">75,-</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
+                        <div class="card border-light mb-3" style="width: 18rem;">
+                            <img class="card-img-top" src="../images/product1.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <a href="#" data-toggle="modal" data-target="#modal">
+                                    <p class="card-text">Kerastase</p>
+                                </a>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">Til sart hår</li>
+                                <li class="list-group-item">75,-</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
