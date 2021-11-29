@@ -1,5 +1,8 @@
+require('dotenv').config();
 const express = require("express");
 const fs = require("fs");
+require('./database/db');
+const User = require('./models/userModel');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -40,6 +43,23 @@ app.get("/booking", (req, res) => {
     res.send(bookingpage);
 });
 
+// app.post("/signup", async (req, res) => {
+//     try {
+//         const user = await User.create({
+//             name: req.body.name,
+//             email: req.body.email,
+//             password: req.body.password,
+//             age: req.body.age
+//         });
+
+//         console.log(user);
+//     } catch (error) {
+//         console.log(error);
+//     }
+
+// });
+
+// app.use('/', browsingRoute);
 
 app.listen(port, (error) => {
     if (error) {
