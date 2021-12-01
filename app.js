@@ -3,7 +3,9 @@ const express = require("express");
 const fs = require("fs");
 require('./database/db');
 const User = require('./models/userModel');
+const productRouter = require("./routes/productRoutes");
 const bodyParser = require('body-parser');
+
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -16,7 +18,7 @@ app.use(express.static(__dirname + "/public"));
 
 // body parser
 app.use(bodyParser.json());
-
+app.use(productRouter);
 
 
 // // error handling middleware
@@ -49,9 +51,9 @@ app.get("/services", (req, res) => {
     res.send(services);
 })
 
-app.get("/products", (req, res) => {
-    res.send(products);
-})
+// app.get("/products", (req, res) => {
+//     res.send(products);
+// })
 
 app.get("/info", (req, res) => {
     res.send(infopage);
@@ -62,18 +64,15 @@ app.get("/booking", (req, res) => {
 });
 
 app.post("/signup", async (req, res) => {
-
-    const user = new User(req.body)
     try {
-        await user.save()
-        console.log(user);
-        res.status(201)
+        const newUser = await User.create(req.body)
+
+        console.log(newUser);
+        res.status(201).send(newUser);
     } catch (e) {
         res.status(400).send(e)
     }
 });
-
-// app.use('/', browsingRoute);
 
 app.listen(port, (error) => {
     if (error) {
