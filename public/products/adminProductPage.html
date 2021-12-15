@@ -13,7 +13,10 @@
     <link type="text/css" rel="stylesheet" href="../products/products.css">
     <script type="text/javascript" src="../products/products.js"></script>
     <title>Producter</title>
-
+    <!-- 
+    <script>
+        document.getElementById("saveModalButton").addEventListener("click", deleteProductById(product._id))
+    </script> -->
 
 </head>
 
@@ -143,7 +146,7 @@
                         <p></p>
                         <button type="button" class="btn btn-secondary" onclick="importData()">Vælg
                             billede</button>
-                        <form id="updateForm" action="">
+                        <form id="updateForm" action="" method="POST">
                             <div class="form-group">
                                 <label for="name">Navn</label>
                                 <input type="text" name="name" class="form-control" id="editName" required>
@@ -166,8 +169,10 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Luk</button>
-                        <button type="button" id="saveModalButton" class="btn btn-primary" data-dismiss="modal">Gem
+                        <button type="submit" id="saveModalButton" class="btn btn-primary" data-dismiss="modal">Gem
                             ændringer</button>
+
+
                         <!-- <button type="button" onclick="deleteProductById('" + product._id + "')" id="deleteModalButton"
                             class="btn btn-danger" data-dismiss="modal">Slet
                             produkt</button> -->

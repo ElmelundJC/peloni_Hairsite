@@ -57,7 +57,9 @@ router.get("/products/:id", async (req, res) => {
 });
 
 // Update product
-router.patch("/admin/products/:id", async (req, res) => {
+router.post("/admin/products/:id", async (req, res) => {
+    id = req.params.id
+    if (!mongoose.Types.ObjectId.isValid(id)) return false;
     const updates = Object.keys(req.body);
     try {
         const product = await Product.findOne({ _id: req.params.id });

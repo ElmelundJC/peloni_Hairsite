@@ -59,6 +59,16 @@
                 deleteBtn.setAttribute("onclick", "deleteProductById('" + product._id + "')")
                 deleteBtn.innerHTML = "Slet produkt"
 
+                let updateBtn = document.createElement("button")
+                updateBtn.setAttribute("href", "#")
+                updateBtn.setAttribute("class", "btn btn-primary")
+                updateBtn.setAttribute("data-toggle", "modal")
+                updateBtn.setAttribute("data-target", "#modal")
+                // productName.setAttribute("class", "product-name")
+                // updateBtn.setAttribute("onclick", "updateProductById('" + product._id + "')")
+                updateBtn.setAttribute("onclick", "getProductById('" + product._id + "')")
+                updateBtn.innerHTML = "Opdater produkt"
+
                 productName.innerHTML = product.name;
                 productCategory.innerHTML = product.category;
                 productdescription.innerHTML = product.description;
@@ -70,7 +80,9 @@
                 productCard.appendChild(productCategory);
                 productCard.appendChild(productdescription);
                 productCard.appendChild(productPrice);
+                productCard.appendChild(updateBtn);
                 productCard.appendChild(deleteBtn);
+
 
             });
         })
@@ -109,21 +121,44 @@ function getProductById(id) {
 
 // Delete a project by its ID 
 function deleteProductById(id) {
-    try {
-        $.ajax({
-            method: "DELETE",
-            url: "/admin/products/" + id,
-            dataType: "json"
-        }).done(
-            location.reload()
-        );
 
-    } catch (error) {
-        alert("Error")
-        console.log(error);
+    if (confirm("Er du sikker!")) {
+        try {
+            $.ajax({
+                method: "DELETE",
+                url: "/admin/products/" + id,
+                dataType: "json"
+            }).done(
+
+                location.reload()
+            );
+
+        } catch (error) {
+            alert("Error")
+            console.log(error);
+        }
+
+    } else {
+        console.log("Delete cancelled")
     }
 
+
+
 };
+
+// Update a project by it's id
+function updateProductById(id) {
+    try {
+        $.ajax({
+            method: "POST",
+            url: "/admin/projects/" + id,
+            dataType: "json"
+        }).done()
+        location.reload()
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 function importData() {
