@@ -18,6 +18,7 @@ app.use(express.static(__dirname + "/public"));
 
 // body parser
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(productRouter);
 
 
@@ -32,8 +33,8 @@ app.use(productRouter);
 const frontpage = fs.readFileSync(__dirname + "/public/frontpage/frontpage.html", "utf-8");
 const about = fs.readFileSync(__dirname + "/public/about/about.html", "utf-8");
 const services = fs.readFileSync(__dirname + "/public/services/services.html", "utf-8");
-const products = fs.readFileSync(__dirname + "/public/products/products2.html", "utf-8");
-
+const products = fs.readFileSync(__dirname + "/public/products/productPage.html", "utf-8");
+const adminProducts = fs.readFileSync(__dirname + "/public/products/adminProductPage.html", "utf-8");
 const infopage = fs.readFileSync(__dirname + "/public/infopage/infopage.html", "utf-8");
 const bookingpage = fs.readFileSync(__dirname + "/public/bookingspage/bookingspage.html", "utf-8");
 
@@ -51,9 +52,13 @@ app.get("/services", (req, res) => {
     res.send(services);
 })
 
-// app.get("/products", (req, res) => {
-//     res.send(products);
-// })
+app.get("/productPage", (req, res) => {
+    res.send(products);
+})
+
+app.get("/adminProductPage", (req, res) => {
+    res.send(adminProducts);
+})
 
 app.get("/info", (req, res) => {
     res.send(infopage);

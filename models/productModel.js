@@ -20,6 +20,10 @@ const productSchema = mongoose.Schema({
     price: {
         type: Number,
         price: Number
+    },
+    productImage: {
+        type: String,
+
     }
 }, {
     timestamps: true

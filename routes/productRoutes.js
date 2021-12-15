@@ -1,22 +1,31 @@
 const express = require("express");
 const router = new express.Router()
 const Product = require("../models/productModel");
+const mongoose = require('mongoose');
+
+router.use(express.urlencoded({ extended: true }));
+
+
 
 // create product
-router.post("/product", async (req, res) => {
+router.post("/admin/productPage", async (req, res) => {
+
+    const product = new Product(req.body)
+
     try {
-        const newProduct = await Product.create(req.body);
-        res.status(201).send(newProduct);
+        await product.save()
+        console.log(req.body)
+        res.status(201).redirect("/adminProductPage")
     } catch (e) {
-        res.status(400).send(e);
+        res.status(400).send(e)
     }
 });
 
 // Get all products
-router.get("/products", async (req, res) => {
+router.get("/admin/productPage", async (req, res) => {
     try {
         const product = await Product.find();
-        console.log(product);
+        //console.log(product);
         if (!product) {
             return res.status(404).send();
         };
@@ -29,10 +38,14 @@ router.get("/products", async (req, res) => {
 
 // Get product
 router.get("/products/:id", async (req, res) => {
+    id = req.params.id
+    if (!mongoose.Types.ObjectId.isValid(id)) return false;
     try {
-        const product = await Product.findOne({ _id: req.params.id });
-        // try this above: const product = await Product.findById(req.params.id);
+        //const product = await Product.findOne({ _id: req.params.id });
+        // try this above: 
+        const product = await Product.findById(req.params.id);
         console.log(product);
+
 
         if (!product) {
             return res.status(404).send();
@@ -44,7 +57,7 @@ router.get("/products/:id", async (req, res) => {
 });
 
 // Update product
-router.patch("/products/:id", async (req, res) => {
+router.patch("/admin/products/:id", async (req, res) => {
     const updates = Object.keys(req.body);
     try {
         const product = await Product.findOne({ _id: req.params.id });
@@ -67,7 +80,7 @@ router.patch("/products/:id", async (req, res) => {
 });
 
 // Delete product
-router.delete("/products/:id", async (req, res) => {
+router.delete("/admin/products/:id", async (req, res) => {
     try {
         const product = await Product.findOneAndDelete({ _id: req.params.id });
         console.log(product);
