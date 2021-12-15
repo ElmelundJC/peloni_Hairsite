@@ -53,7 +53,11 @@
                 productPrice.setAttribute("class", "list-group-item")
                 productPrice.setAttribute("id", "product-price");
 
-
+                let deleteBtn = document.createElement("button")
+                deleteBtn.setAttribute("class", "btn btn-danger")
+                deleteBtn.setAttribute("id", "deleteBtn")
+                deleteBtn.setAttribute("onclick", "deleteProductById('" + product._id + "')")
+                deleteBtn.innerHTML = "Slet produkt"
 
                 productName.innerHTML = product.name;
                 productCategory.innerHTML = product.category;
@@ -66,6 +70,7 @@
                 productCard.appendChild(productCategory);
                 productCard.appendChild(productdescription);
                 productCard.appendChild(productPrice);
+                productCard.appendChild(deleteBtn);
 
             });
         })
@@ -101,6 +106,24 @@ function getProductById(id) {
         console.log(error);
     }
 }
+
+// Delete a project by its ID 
+function deleteProductById(id) {
+    try {
+        $.ajax({
+            method: "DELETE",
+            url: "/admin/products/" + id,
+            dataType: "json"
+        }).done(
+            location.reload()
+        );
+
+    } catch (error) {
+        alert("Error")
+        console.log(error);
+    }
+
+};
 
 
 function importData() {

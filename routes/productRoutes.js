@@ -81,6 +81,8 @@ router.patch("/admin/products/:id", async (req, res) => {
 
 // Delete product
 router.delete("/admin/products/:id", async (req, res) => {
+    id = req.params.id
+    if (!mongoose.Types.ObjectId.isValid(id)) return false;
     try {
         const product = await Product.findOneAndDelete({ _id: req.params.id });
         console.log(product);
