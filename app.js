@@ -1,8 +1,12 @@
 require('dotenv').config();
-const express = require("express");
-const fs = require("fs");
 require('./database/db');
+const fs = require("fs");
+
+const express = require("express");
 const User = require('./models/userModel');
+const userRouter = require('./routes2/userRoutes'); // Muligvis ligegyldig i app.js
+
+7
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -11,7 +15,7 @@ const port = process.env.PORT || 3000;
 
 
 // Middleware
-
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + "/public"));
 
 // body parser
@@ -19,11 +23,11 @@ app.use(bodyParser.json());
 
 
 
-// // error handling middleware
-// app.use((err, req, res, next) => {
-//     //console.log(err);
-//     res.status(422).send({ error: err.message });
-// });
+// error handling middleware
+app.use((err, req, res, next) => {
+    //console.log(err);
+    res.status(422).send({ error: err.message });
+});
 
 
 // Pages
@@ -61,19 +65,14 @@ app.get("/booking", (req, res) => {
     res.send(bookingpage);
 });
 
-app.post("/signup", async (req, res) => {
+// app.get("/admingBooking", protected, (req, res) => {
+//     res.status(500).send(bookingpage);
+// });
 
-    const user = new User(req.body)
-    try {
-        await user.save()
-        console.log(user);
-        res.status(201)
-    } catch (e) {
-        res.status(400).send(e)
-    }
-});
 
-// app.use('/', browsingRoute);
+// ROUTES
+app.use('/api/users', userRouter);
+
 
 app.listen(port, (error) => {
     if (error) {
@@ -81,3 +80,37 @@ app.listen(port, (error) => {
     };
     console.log(`Connected to server on port ${port}`);
 });
+
+// run()
+// async function run() {
+//     try {
+//         const user = await User.findByIdAndUpdate("61bc9d14e825f45c00cd4939");
+//         console.log(user);
+        
+//         const newEvent = {
+//             title: "Tid taget",
+//             timeSlot: "09:00",
+//             hairCut: true,
+//             color: false,
+//             message: "Det er min 3 årige der skal klippes for første gang."
+//         }
+//         user.events.push(newEvent);
+//         await user.save();
+//     } catch(e) {
+//         console.log(e.message);
+//     }
+// }
+
+// UPDATE FUNCTION FOR A USER..
+// var objFriends = { fname:"fname",lname:"lname",surname:"surname" };
+// Friend.findOneAndUpdate(
+//     { _id: req.body.id }, 
+//     { $push: { friends: objFriends  } },
+//    function (error, success) {
+//          if (error) {
+//              console.log(error);
+//          } else {
+//              console.log(success);
+//          }
+//      });
+//  )
