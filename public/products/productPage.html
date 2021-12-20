@@ -8,7 +8,8 @@
     <title>Produkter</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
         integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link type="text/css" rel="stylesheet" href="../products/products.css">
     <script type="text/javascript" src="../products/products2.js"></script>
 
@@ -47,19 +48,39 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modalTitle"></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <h5 class="modal-title" id="modalTitle">Produkt information</h5>
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
-                        </button>
+                        </button> -->
                     </div>
                     <div class="modal-body">
                         <img class="card-img-top" src="../images/product1.jpg" height="185px" width="185px"
                             alt="Card image cap">
-                        <p id="descriptionModal"></p>
+
+                        <form id="infoForm" action="" method="POST">
+                            <div class="form-group">
+                                <label for="name">Navn</label>
+                                <input type="text" name="name" class="form-control" id="editName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="category">Kategory</label>
+                                <input type="text" name="category" class="form-control" id="editCategory" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Beskrivelse</label>
+                                <input type="text" name="description" class="form-control" id="editDescription"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Pris</label>
+                                <input type="text" name="price" class="form-control" id="editPrice" required>
+                            </div>
+                            <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Luk</button> -->
+                        </form>
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Luk</button>
                     </div>
                 </div>
             </div>
@@ -316,9 +337,9 @@
     </section> -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
-    <script src=" https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    <!-- <script src=" https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-        </script>
+        </script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
         integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
         crossorigin="anonymous"></script>

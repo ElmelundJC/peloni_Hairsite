@@ -108,7 +108,7 @@ function getProductById(id) {
             $("#editDescription").val(product.description);
             $("#editPrice").val(product.price);
 
-            $("#updateForm").attr("action", "/products/" + product._id);
+            $("#infoForm").attr("action", "/products/" + product._id);
         }
 
         );

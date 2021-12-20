@@ -3,8 +3,10 @@ const router = new express.Router()
 const Product = require("../models/productModel");
 const mongoose = require('mongoose');
 
-router.use(express.urlencoded({ extended: true }));
+const bodyParser = require('body-parser');
 
+router.use(express.urlencoded({ extended: true }));
+router.use(bodyParser.json());
 
 
 // create product
@@ -38,12 +40,12 @@ router.get("/admin/productPage", async (req, res) => {
 
 // Get product
 router.get("/products/:id", async (req, res) => {
-    id = req.params.id
-    if (!mongoose.Types.ObjectId.isValid(id)) return false;
+    // id = req.params.id
+    // if (!mongoose.Types.ObjectId.isValid(id)) return false;
     try {
-        //const product = await Product.findOne({ _id: req.params.id });
+        const product = await Product.findOne({ _id: req.params.id });
         // try this above: 
-        const product = await Product.findById(req.params.id);
+        //const product = await Product.findById(req.params.id);
         console.log(product);
 
 
@@ -58,8 +60,8 @@ router.get("/products/:id", async (req, res) => {
 
 // Update product
 router.post("/admin/products/:id", async (req, res) => {
-    id = req.params.id
-    if (!mongoose.Types.ObjectId.isValid(id)) return false;
+    // id = req.params.id
+    // if (!mongoose.Types.ObjectId.isValid(id)) return false;
     const updates = Object.keys(req.body);
     try {
         const product = await Product.findOne({ _id: req.params.id });
