@@ -152,7 +152,7 @@ function updateProductById(id) {
     try {
         $.ajax({
             method: "POST",
-            url: "/admin/products/" + id,
+            url: "/products/" + id,
             dataType: "json"
         }).done()
         location.reload()

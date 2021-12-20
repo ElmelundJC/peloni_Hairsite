@@ -59,7 +59,7 @@ router.get("/products/:id", async (req, res) => {
 });
 
 // Update product
-router.post("/admin/products/:id", async (req, res) => {
+router.post("/products/:id", async (req, res) => {
     // id = req.params.id
     // if (!mongoose.Types.ObjectId.isValid(id)) return false;
     const updates = Object.keys(req.body);
@@ -76,7 +76,7 @@ router.post("/admin/products/:id", async (req, res) => {
         });
 
         await product.save();
-        res.redirect("/");
+        res.redirect("/adminProductPage");
 
     } catch (error) {
         res.status(400).send(error);
