@@ -1,4 +1,3 @@
-
 (async function getProducts() {
     try {
         $.ajax({
@@ -33,13 +32,12 @@
                 productInfo.setAttribute("id", "productInfo");
                 productInfo.setAttribute("class", "list-group");
 
-                let productName = document.createElement("li")
-                // productName.setAttribute("href", "#")
-                // productName.setAttribute("data-toggle", "modal")
-                // productName.setAttribute("data-target", "#modal")
-                productName.setAttribute("class", "list-group-item")
-                productName.setAttribute("id", "product-name")
-                //productName.setAttribute("onclick", "getProductById('" + product._id + "')")
+                let productName = document.createElement("a")
+                productName.setAttribute("href", "#")
+                productName.setAttribute("data-toggle", "modal")
+                productName.setAttribute("data-target", "#modal")
+                productName.setAttribute("class", "product-name")
+                productName.setAttribute("onclick", "getProductById('" + product._id + "')")
 
 
                 let productCategory = document.createElement("li");
@@ -58,21 +56,22 @@
                 deleteBtn.setAttribute("class", "btn btn-danger")
                 deleteBtn.setAttribute("id", "deleteBtn")
                 deleteBtn.setAttribute("onclick", "deleteProductById('" + product._id + "')")
-                deleteBtn.textContent = "Slet produkt"
+                deleteBtn.innerHTML = "Slet produkt"
 
                 let updateBtn = document.createElement("button")
                 updateBtn.setAttribute("href", "#")
                 updateBtn.setAttribute("class", "btn btn-primary")
                 updateBtn.setAttribute("data-toggle", "modal")
                 updateBtn.setAttribute("data-target", "#modal")
+                // productName.setAttribute("class", "product-name")
                 // updateBtn.setAttribute("onclick", "updateProductById('" + product._id + "')")
                 updateBtn.setAttribute("onclick", "getProductById('" + product._id + "')")
-                updateBtn.textContent = "Opdater produkt"
+                updateBtn.innerHTML = "Opdater produkt"
 
-                productName.textContent = product.name;
-                productCategory.textContent = product.category;
-                productdescription.textContent = product.description;
-                productPrice.textContent = product.price;
+                productName.innerHTML = product.name;
+                productCategory.innerHTML = product.category;
+                productdescription.innerHTML = product.description;
+                productPrice.innerHTML = product.price;
 
 
 
@@ -80,8 +79,8 @@
                 productCard.appendChild(productCategory);
                 productCard.appendChild(productdescription);
                 productCard.appendChild(productPrice);
-                productCard.appendChild(updateBtn);
-                productCard.appendChild(deleteBtn);
+                // productCard.appendChild(updateBtn);
+                // productCard.appendChild(deleteBtn);
 
 
             });
@@ -141,18 +140,17 @@ function deleteProductById(id) {
     } else {
         console.log("Delete cancelled")
     }
+
+
+
 };
-
-
-
-
 
 // Update a project by it's id
 function updateProductById(id) {
     try {
         $.ajax({
             method: "POST",
-            url: "/admin/products/" + id,
+            url: "/admin/projects/" + id,
             dataType: "json"
         }).done()
         location.reload()
@@ -160,8 +158,6 @@ function updateProductById(id) {
         console.log(error);
     }
 }
-
-
 
 
 function importData() {

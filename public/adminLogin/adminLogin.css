@@ -1,0 +1,30 @@
+body {
+    background: url(../images/pexels-tim-mossholder-1049688.jpg) center center fixed;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+   }
+   
+
+.main {
+  text-align: center;
+  
+}
+
+.centered {
+  position: absolute;
+  color: white;
+  top: 22%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} 
+
+.email {
+margin-right: 35px;
+}
+
+.password {
+margin-right: 60px;
+}
