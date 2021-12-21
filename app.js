@@ -4,6 +4,7 @@ const fs = require("fs");
 require('./database/db');
 const User = require('./models/userModel');
 const productRouter = require("./routes/productRoutes");
+const serviceRouter = require("./routes/serviceRoutes");
 const bodyParser = require('body-parser');
 
 
@@ -20,6 +21,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(productRouter);
+app.use(serviceRouter)
 
 
 // // error handling middleware
