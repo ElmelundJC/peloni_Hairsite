@@ -1,27 +1,39 @@
+const express = require("express");
 require('dotenv').config();
 require('./database/db');
-const fs = require("fs");
+const morgan = require('morgan');
+const cors = require('cors');
 
-const express = require("express");
+const AppError = require('./utils/appError');
+const globalErrorHandler = require('./controllers/errorController');
 const User = require('./models/userModel');
 const userRouter = require('./routes2/userRoutes'); // Muligvis ligegyldig i app.js
 
-7
-const bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
+const bodyParser = require('body-parser');
+const fs = require("fs");
+
+
+// Development logging
+console.log(process.env.NODE_ENV);
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
+
+app.use(cors());
 
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(__dirname + "/public"));
 
 // body parser
 app.use(bodyParser.json());
 
-
+// Serving static files
+app.use(express.static(__dirname + "/public"));
 
 // error handling middleware
 app.use((err, req, res, next) => {
@@ -73,6 +85,17 @@ app.get("/booking", (req, res) => {
 // ROUTES
 app.use('/api/users', userRouter);
 
+
+app.all('*', (req, res, next) => {
+
+    // const err = new Error(`Can't find ${req.originalUrl} on this server!`);
+    // err.status = 'fail!';
+    // err.statusCode = 404;
+  
+    next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404) );
+  });
+
+app.use(globalErrorHandler);
 
 app.listen(port, (error) => {
     if (error) {

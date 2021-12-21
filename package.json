@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "startup": "nodemon app.js",
-    "dev": "nodemon.cmd app.js"
+    "dev": "nodemon.cmd app.js",
+    "start:dev": "nodemon app.js",
+    "start:prod": "NODE_ENV=production nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -22,10 +23,13 @@
     "appointment-picker": "^2.0.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "fs": "*",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.13",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.14",
     "validator": "^13.7.0"
   }
