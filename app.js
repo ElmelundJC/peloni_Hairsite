@@ -11,7 +11,7 @@ const userRouter = require('./routes2/userRoutes'); // Muligvis ligegyldig i app
 
 const productRouter = require("./routes/productRoutes");
 const serviceRouter = require("./routes/serviceRoutes");
-const bodyParser = require('body-parser');
+
 
 
 const app = express();
