@@ -34,13 +34,8 @@
                 productInfo.setAttribute("class", "list-group");
 
                 let productName = document.createElement("li")
-                // productName.setAttribute("href", "#")
-                // productName.setAttribute("data-toggle", "modal")
-                // productName.setAttribute("data-target", "#modal")
                 productName.setAttribute("class", "list-group-item")
                 productName.setAttribute("id", "product-name")
-                //productName.setAttribute("onclick", "getProductById('" + product._id + "')")
-
 
                 let productCategory = document.createElement("li");
                 productCategory.setAttribute("class", "list-group-item")
@@ -65,7 +60,6 @@
                 updateBtn.setAttribute("class", "btn btn-primary")
                 updateBtn.setAttribute("data-toggle", "modal")
                 updateBtn.setAttribute("data-target", "#modal")
-                // updateBtn.setAttribute("onclick", "updateProductById('" + product._id + "')")
                 updateBtn.setAttribute("onclick", "getProductById('" + product._id + "')")
                 updateBtn.textContent = "Opdater produkt"
 
@@ -73,8 +67,6 @@
                 productCategory.textContent = product.category;
                 productdescription.textContent = product.description;
                 productPrice.textContent = product.price;
-
-
 
                 productCard.appendChild(productName);
                 productCard.appendChild(productCategory);

@@ -8,7 +8,12 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
         integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link type="text/css" rel="stylesheet" href="../services/services.css">
+    <script type="text/javascript" src="../services/service.js"></script>
+
+
 
     <title>Ydelser</title>
 </head>
@@ -121,7 +126,26 @@
                             "</p>
                         <a style="color: black;" href="/booking">Book en tid</a>
                         <hr>
+
                         <div class="row d-flex justify-content-center">
+                            <div class="service-table">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Service</th>
+                                            <th scope="col">Ydelser</th>
+                                            <th scope="col">Pris</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="addData">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                        <!-- <div class="row d-flex justify-content-center">
                             <div class="col-md-6 ">
                                 <h5>Dameklip</h5>
                                 <p>Inklusiv vask, klip og finish</p>
@@ -161,12 +185,12 @@
                                     pandehår 50,-
                                     <br>
                                 </p>
-                            </div>
-                        </div>
+                            </div> -->
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 
