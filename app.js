@@ -57,6 +57,7 @@ const services = fs.readFileSync(__dirname + "/public/services/services.html", "
 const products = fs.readFileSync(__dirname + "/public/products/productPage.html", "utf-8");
 const infopage = fs.readFileSync(__dirname + "/public/infopage/infopage.html", "utf-8");
 const bookingpage = fs.readFileSync(__dirname + "/public/bookingspage/bookingspage.html", "utf-8");
+const footer = fs.readFileSync(__dirname + "/public/footer/footer.html", "utf-8");
 
 // Admin views
 const adminLogin = fs.readFileSync(__dirname + "/public/adminLogin/adminLogin.html", "utf-8");
@@ -70,27 +71,27 @@ const adminBookingpage = fs.readFileSync(__dirname + "/public/bookingspage/admin
 
 // Customer routes
 app.get("/", (req, res) => {
-    res.send(navbar + frontpage);
+    res.send(navbar + frontpage + footer);
 });
 
 app.get("/about", (req, res) => {
-    res.send(navbar + about);
+    res.send(navbar + about + footer);
 })
 
 app.get("/services", (req, res) => {
-    res.send(navbar + services);
+    res.send(navbar + services + footer);
 })
 
 app.get("/productPage", (req, res) => {
-    res.send(navbar + products);
+    res.send(navbar + products + footer);
 })
 
 app.get("/info", (req, res) => {
-    res.send(navbar + infopage);
+    res.send(navbar + infopage + footer);
 });
 
 app.get("/booking", (req, res) => {
-    res.send(navbar + bookingpage);
+    res.send(navbar + bookingpage + footer);
 });
 
 // app.get("/admingBooking", protected, (req, res) => {
@@ -107,27 +108,27 @@ app.get("/adminLogin", (req, res) => {
 
 
 app.get("/admin", (req, res) => {
-    res.send(adminNavbar + adminFrontpage);
+    res.send(adminNavbar + adminFrontpage + footer);
 });
 
 app.get("/adminAbout", (req, res) => {
-    res.send(adminNavbar + adminAbout);
+    res.send(adminNavbar + adminAbout + footer);
 });
 
 app.get("/adminServices", (req, res) => {
-    res.send(adminNavbar + adminServices);
+    res.send(adminNavbar + adminServices + footer);
 });
 
 app.get("/adminProductPage", (req, res) => {
-    res.send(adminNavbar + adminProducts);
+    res.send(adminNavbar + adminProducts + footer);
 })
 
 app.get("/adminInfo", (req, res) => {
-    res.send(adminNavbar + adminInfopage);
+    res.send(adminNavbar + adminInfopage + footer);
 });
 
 app.get("/adminBooking", (req, res) => {
-    res.send(adminNavbar + adminBookingpage);
+    res.send(adminNavbar + adminBookingpage + footer);
 });
 
 

@@ -113,7 +113,6 @@ function getProductById(id) {
 
 // Delete a project by its ID 
 function deleteProductById(id) {
-
     if (confirm("Er du sikker!")) {
         try {
             $.ajax({
