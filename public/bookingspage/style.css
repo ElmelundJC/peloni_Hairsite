@@ -45,7 +45,7 @@
   #header {
     padding: 10px;
     color: #d36c6c;
-    font-size: 26px;
+    font-size: 30px;
     font-family: sans-serif;
     display: flex;
     justify-content: space-between;
@@ -54,12 +54,20 @@
   #header button {
     background-color:#92a1d1;
   }
+#backButton {
+  font-size: 20px;
+}
+#nextButton{
+  font-size: 20px;
+}
+
   #container {
     width: 770px;
   }
   #weekdays {
     width: 100%;
     display: flex;
+    justify-content: space-between;
     color: #247BA0;
   }
   #weekdays div {
@@ -156,7 +164,7 @@
     flex-direction: row;
 }
 
-#mnewEventModal #popup .form #bookingForm {
+#newEventModal #popup .form #bookingForm {
     display: flex;
     flex-direction: column;
 }

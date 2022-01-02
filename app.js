@@ -2,6 +2,11 @@ const express = require("express");
 require('dotenv').config();
 require('./database/db');
 const morgan = require('morgan');
+const rateLimit = require('express-rate-limit').default;
+const helmet = require('helmet');
+const mongoSanitize = require('express-mongo-sanitize');
+const xss = require('xss-clean');
+const hpp = require('hpp');
 const cors = require('cors');
 
 const AppError = require('./utils/appError');
@@ -20,6 +25,10 @@ const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 const fs = require("fs");
 
+// ******* Middleware *********
+
+// Set Security HTTP headers
+app.use(helmet());
 
 // Development logging
 console.log(process.env.NODE_ENV);
@@ -29,8 +38,29 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use(cors());
 
+// Sætter et max-limit for hvor mange gange en bruger kan foretage
+const limiter = rateLimit({
+    max: 30,
+    windowMs: 60 * 60 * 1000,
+    message: 'Too many request from this IP, please try again in an hour!',
+});
 
-// Middleware
+app.use('/api', limiter);
+
+
+// Data sanitization mod NoSQL query injection
+// Fjerner dollar tegn og . fra requests.
+app.use(mongoSanitize());
+
+// Data sanitization mod XSS
+// nem omskrivning af html tegn < > som sikrer os mod xss angreb.
+app.use(xss());
+
+// Prevent parameter pollution hvilket fjerner duplikater i query string // Whitelisting gør det muligt for nogle parametre at blive duplikeret i qString
+app.use(hpp({
+    whitelist: ['events']
+}));
+
 app.use(express.urlencoded({ extended: false }));
 
 // body parser
@@ -40,7 +70,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(productRouter);
-app.use(serviceRouter)
+app.use(serviceRouter);
 
 // error handling middleware
 app.use((err, req, res, next) => {
@@ -164,37 +194,3 @@ app.listen(port, (error) => {
     };
     console.log(`Connected to server on port ${port}`);
 });
-
-// run()
-// async function run() {
-//     try {
-//         const user = await User.findByIdAndUpdate("61bc9d14e825f45c00cd4939");
-//         console.log(user);
-        
-//         const newEvent = {
-//             title: "Tid taget",
-//             timeSlot: "09:00",
-//             hairCut: true,
-//             color: false,
-//             message: "Det er min 3 årige der skal klippes for første gang."
-//         }
-//         user.events.push(newEvent);
-//         await user.save();
-//     } catch(e) {
-//         console.log(e.message);
-//     }
-// }
-
-// UPDATE FUNCTION FOR A USER..
-// var objFriends = { fname:"fname",lname:"lname",surname:"surname" };
-// Friend.findOneAndUpdate(
-//     { _id: req.body.id }, 
-//     { $push: { friends: objFriends  } },
-//    function (error, success) {
-//          if (error) {
-//              console.log(error);
-//          } else {
-//              console.log(success);
-//          }
-//      });
-//  )

@@ -39,7 +39,7 @@ function load() {
     const year = dt.getFullYear();
 
     const firstDayOfMonth = new Date(year, month, 1);
-    // Lidt tricky, men ved at kalde month + 1 fortæller vi at den skal oprette næste måned. Det smarte er så at sætte dag parametret til at være lig 0. Det betyder at den skal finde den sidste dag i den forrige måned. (  1 = dag 1 i nuværende måned, 2 = 2. dag i nuværende måned, 0 = sidste dag i forrige måned, -1 = 2 dage tilbage fra første dag. osv. [-1,0,1,2, osv.] index 1 viser os den først dag i måneden som beskrevet.)
+
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     console.log(daysInMonth + " dage i måned");
 

@@ -1,3 +1,4 @@
+const crypto = require('crypto');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
@@ -67,6 +68,11 @@ const userSchema = new Schema({
             message: 'Password are not the same!',
         },
     },
+    phone: {
+        type: Number,
+        required: [true, "Please provide your phonenumber"],
+        minlength: 8,
+    },
     age: {
         type: Number,
         default: 1,
@@ -80,6 +86,13 @@ const userSchema = new Schema({
         type: String,
     },
     passwordChangedAt: Date,
+    passwordResetToken: String,
+    passwordResetExpires: Date,
+    active: {
+        type: Boolean,
+        default: true,
+        select: false,
+    },
     events: [ EventSchema ],
 }, { 
     timestamps: true  
@@ -88,21 +101,36 @@ const userSchema = new Schema({
 // ************** Document middleware/PRE MIDDLEWARE **************
 
 userSchema.pre('save', async function(next) {
-    // Only run this function if password was actually modified
+    // Kører kun funktionen hvis password er blevet modificeret
 
-    // If the password has not been modified then just exit this function and call the next middleware
+    // Hvis password ikke er modificeret return next.
     if(!this.isModified('password')) return next();
 
 
-    // Hash password with cost of 12
+    // Hash password med 12 værdier
     this.password = await bcrypt.hash(this.password, 12);
-
+    // sætter værdi til undefined således værdien ikke fortsat gemmes på passwordConfirm
     this.passwordConfirm = undefined;
     
     next();
 });
 
-// Instance Method
+userSchema.pre('save', function(next){
+    if(!this.isModified('password') || this.isNew) return next();
+    // ved at sætte vores passwordChangeAt lig - 1 sekund sikrer os at koden når at gemme i databasen, så der ikke opstår fejl i koden i forhold til mulige delay.
+    this.passwordChangedAt = Date.now() - 1000;
+    next();
+});
+
+// query middleware
+userSchema.pre(/^find/, function(next) {
+    // 'this' peger på nuværende query
+    // find users that is $ne (Not equal) to false )
+    this.find({ active: { $ne: false }});
+    next();
+});
+
+// ************** Instance Methods ************
 userSchema.methods.correctPassword = async function(candidatePassword, userPassword) {
     return await bcrypt.compare(candidatePassword, userPassword);
 }
@@ -117,6 +145,17 @@ userSchema.methods.changedPasswordAfter = function(JWTTimestamp) {
     return false;
 }
 
+userSchema.methods.createPasswordResetToken = function () {
+    const resetToken = crypto.randomBytes(32).toString('hex');
+
+    this.passwordResetToken = crypto.createHash('sha256').update(resetToken).digest('hex');
+
+    this.passwordResetExpires = Date.now() + 10 * 60 * 1000; // 10 minutter
+
+    console.log({ resetToken }, this.passwordResetToken);
+
+    return resetToken;
+}
 
 const User = mongoose.model('User', userSchema);
 
