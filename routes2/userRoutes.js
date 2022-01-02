@@ -1,3 +1,4 @@
+// Skrevet af Christian
 const express = require('express');
 const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');

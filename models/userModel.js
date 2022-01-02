@@ -1,3 +1,4 @@
+// Skrevet af Christian
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
@@ -39,11 +40,11 @@ const userSchema = new Schema({
         lowercase: true,
         trim: true,
         validate(value) {
-            if (!validator.isEmail(value)){
+            if (!validator.isEmail(value)) {
                 throw new Error("Email is invalid");
             }
         }
-    }, 
+    },
     role: {
         type: String,
         enum: ['user', 'admin'],
@@ -62,7 +63,7 @@ const userSchema = new Schema({
         validate: {
             // Virker kun på CREATE & SAVE!!! (MongoDB)
             validator: function (el) {
-                return el === this.password; 
+                return el === this.password;
             },
             message: 'Password are not the same!',
         },
@@ -71,7 +72,7 @@ const userSchema = new Schema({
         type: Number,
         default: 1,
         validate(value) {
-            if(value < 0){
+            if (value < 0) {
                 throw new Error("Age must be above 0");
             }
         }
@@ -80,40 +81,40 @@ const userSchema = new Schema({
         type: String,
     },
     passwordChangedAt: Date,
-    events: [ EventSchema ],
-}, { 
-    timestamps: true  
+    events: [EventSchema],
+}, {
+    timestamps: true
 });
 
 // ************** Document middleware/PRE MIDDLEWARE **************
 
-userSchema.pre('save', async function(next) {
+userSchema.pre('save', async function (next) {
     // Only run this function if password was actually modified
 
     // If the password has not been modified then just exit this function and call the next middleware
-    if(!this.isModified('password')) return next();
+    if (!this.isModified('password')) return next();
 
 
     // Hash password with cost of 12
     this.password = await bcrypt.hash(this.password, 12);
 
     this.passwordConfirm = undefined;
-    
+
     next();
 });
 
 // Instance Method
-userSchema.methods.correctPassword = async function(candidatePassword, userPassword) {
+userSchema.methods.correctPassword = async function (candidatePassword, userPassword) {
     return await bcrypt.compare(candidatePassword, userPassword);
 }
 
 
-userSchema.methods.changedPasswordAfter = function(JWTTimestamp) {
-    if(this.passwordChangedAt) {
+userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
+    if (this.passwordChangedAt) {
         const changedTimestamp = parseInt(this.passwordChangedAt.getTime() / 1000, 10);
-       return JWTTimestamp < changedTimestamp;
+        return JWTTimestamp < changedTimestamp;
     }
-    
+
     return false;
 }
 

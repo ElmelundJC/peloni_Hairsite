@@ -1,3 +1,4 @@
+// Skrevet af Jakob
 const express = require("express");
 const router = new express.Router();
 const Service = require("../models/serviceModel");
@@ -38,12 +39,10 @@ router.get("/admin/servicePage", async (req, res) => {
 
 // Get service
 router.get("/services/:id", async (req, res) => {
-    // id = req.params.id
-    // if (!mongoose.Types.ObjectId.isValid(id)) return false;
+
     try {
         const service = await Service.findOne({ _id: req.params.id });
-        // try this above: 
-        //const product = await Product.findById(req.params.id);
+
         console.log(service);
 
 
@@ -58,8 +57,7 @@ router.get("/services/:id", async (req, res) => {
 
 // Update service
 router.post("/services/:id", async (req, res) => {
-    // id = req.params.id
-    // if (!mongoose.Types.ObjectId.isValid(id)) return false;
+
     const updates = Object.keys(req.body);
     try {
         const service = await Service.findOne({ _id: req.params.id });
@@ -83,8 +81,7 @@ router.post("/services/:id", async (req, res) => {
 
 // Delete service
 router.delete("/admin/services/:id", async (req, res) => {
-    // id = req.params.id
-    // if (!mongoose.Types.ObjectId.isValid(id)) return false;
+
     try {
         const service = await Service.findOneAndDelete({ _id: req.params.id });
         console.log(service);

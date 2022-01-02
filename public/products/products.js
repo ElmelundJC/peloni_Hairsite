@@ -1,4 +1,4 @@
-
+// Skrevet af Jakob
 (async function getProducts() {
     try {
         $.ajax({

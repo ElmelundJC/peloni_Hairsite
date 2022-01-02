@@ -1,3 +1,4 @@
+// Skrevet af Jakob
 const express = require("express");
 const router = new express.Router()
 const Product = require("../models/productModel");
@@ -27,7 +28,6 @@ router.post("/admin/productPage", async (req, res) => {
 router.get("/admin/productPage", async (req, res) => {
     try {
         const product = await Product.find();
-        //console.log(product);
         if (!product) {
             return res.status(404).send();
         };

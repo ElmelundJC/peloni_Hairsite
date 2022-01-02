@@ -1,3 +1,4 @@
+// Skrevet af Christian og Jakob
 const express = require("express");
 require('dotenv').config();
 require('./database/db');
@@ -7,7 +8,7 @@ const cors = require('cors');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const User = require('./models/userModel');
-const userRouter = require('./routes2/userRoutes'); // Muligvis ligegyldig i app.js
+const userRouter = require('./routes2/userRoutes');
 
 const productRouter = require("./routes/productRoutes");
 const serviceRouter = require("./routes/serviceRoutes");
@@ -24,7 +25,7 @@ const fs = require("fs");
 // Development logging
 console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'development') {
-  app.use(morgan('dev'));
+    app.use(morgan('dev'));
 }
 
 app.use(cors());
@@ -44,7 +45,6 @@ app.use(serviceRouter)
 
 // error handling middleware
 app.use((err, req, res, next) => {
-    //console.log(err);
     res.status(422).send({ error: err.message });
 });
 
@@ -94,13 +94,6 @@ app.get("/booking", (req, res) => {
     res.send(navbar + bookingpage + footer);
 });
 
-// app.get("/admingBooking", protected, (req, res) => {
-//     res.status(500).send(bookingpage);
-// });
-
-
-
-
 // Admin routes
 app.get("/adminLogin", (req, res) => {
     res.send(adminLogin)
@@ -149,13 +142,8 @@ app.use('/api/users', userRouter);
 
 
 app.all('*', (req, res, next) => {
-
-    // const err = new Error(`Can't find ${req.originalUrl} on this server!`);
-    // err.status = 'fail!';
-    // err.statusCode = 404;
-  
-    next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404) );
-  });
+    next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
+});
 
 app.use(globalErrorHandler);
 
@@ -165,37 +153,3 @@ app.listen(port, (error) => {
     };
     console.log(`Connected to server on port ${port}`);
 });
-
-// run()
-// async function run() {
-//     try {
-//         const user = await User.findByIdAndUpdate("61bc9d14e825f45c00cd4939");
-//         console.log(user);
-        
-//         const newEvent = {
-//             title: "Tid taget",
-//             timeSlot: "09:00",
-//             hairCut: true,
-//             color: false,
-//             message: "Det er min 3 årige der skal klippes for første gang."
-//         }
-//         user.events.push(newEvent);
-//         await user.save();
-//     } catch(e) {
-//         console.log(e.message);
-//     }
-// }
-
-// UPDATE FUNCTION FOR A USER..
-// var objFriends = { fname:"fname",lname:"lname",surname:"surname" };
-// Friend.findOneAndUpdate(
-//     { _id: req.body.id }, 
-//     { $push: { friends: objFriends  } },
-//    function (error, success) {
-//          if (error) {
-//              console.log(error);
-//          } else {
-//              console.log(success);
-//          }
-//      });
-//  )

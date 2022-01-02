@@ -1,3 +1,4 @@
+// Skrevet af Christian
 const User = require('../models/userModel');
 
 const getAllEvents = (req, res) => {

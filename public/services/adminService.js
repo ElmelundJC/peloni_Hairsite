@@ -1,3 +1,4 @@
+// Skrevet af Jakob
 (async function getServices() {
     try {
         $.ajax({
@@ -17,17 +18,12 @@
                             + "</td> <td>" +
                             services.price
                             + "</td> <td>" +
-                            // "<button class='btn btn-primary' href='#' data-toggle='modal' data-target='#modal' onclick=\'getServiceById('" + services._id + "')\' >Opdater</button>"
+
                             "<a href='#' onclick=\"getServiceById('" + services._id + "')\" data-toggle='modal' data-target='#modal'><span class='fas fa-edit'></span>Opdater</a>"
                             + "</td> <td>" +
-                            // "<button class='btn btn-danger' onclick=\'deleteServiceById('" + services._id + "')\'>Slet</button>"
                             "<a href='#' onclick=\"deleteServiceById('" + services._id + "')\"><span class='fas fa-trash-alt'></span>Slet</a>"
                             + "</td> </tr>"
 
-                            // "<a href='' onclick=\"viewProjectById('" + services._id + "')\" data-bs-toggle='modal' data-bs-target='#viewProjectModal'><span class='fas fa-eye'></span></a>" +
-                            // "<a href='' onclick=\"getProjectById('" + services._id + "')\" data-bs-toggle='modal' data-bs-target='#updateProjectModal'><span class='fas fa-edit'></span></a>" +
-                            // "<a href='' onclick=\"deleteProjectById('" + services._id + "')\"><span class='fas fa-trash-alt'></span></a>"
-                            // + "</td> </tr>"
                         ))
             });
         })

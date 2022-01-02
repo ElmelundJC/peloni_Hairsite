@@ -1,3 +1,4 @@
+// Skrevet af Christian
 const AppError = require("./../utils/appError");
 
 const handleCastErrorDB = err => {
@@ -32,37 +33,34 @@ const sendErrorDev = (err, res) => {
         error: err,
         message: err.message,
         stack: err.stack,
-      });
+    });
 };
 
 const sendErrorProd = (err, res) => {
     // Operational, trusted error: send message til client
-    if (err.isOperational){
+    if (err.isOperational) {
         res.status(err.statusCode).json({
             status: err.status,
             message: err.message,
         });
-    // Programming eller anden ukendt error --> skal ikke 'leake daten' til clienten
     } else {
-        // 1) Log error
         console.error('### Error ###', err);
 
         // Send generisk message
         res.status(500).json({
-           status: 'error',
-           message: 'Something went very wrong!', 
+            status: 'error',
+            message: 'Something went very wrong!',
         })
     }
 };
 
 module.exports = (err, req, res, next) => {
-    // logging af stacktrace
-    // console.log(err.stack);
+
 
     // defining a default status code
-    err.statusCode = err.statusCode || 500; // (500) internal server error
+    err.statusCode = err.statusCode || 500;
     err.status = err.status || 'error';
-  
+
 
     // handler errors for hhv. development eller production
     if (process.env.NODE_ENV === 'development') {

@@ -1,3 +1,4 @@
+// Skrevet af Jakob
 (async function getProducts() {
     try {
         $.ajax({
@@ -63,8 +64,6 @@
                 updateBtn.setAttribute("class", "btn btn-primary")
                 updateBtn.setAttribute("data-toggle", "modal")
                 updateBtn.setAttribute("data-target", "#modal")
-                // productName.setAttribute("class", "product-name")
-                // updateBtn.setAttribute("onclick", "updateProductById('" + product._id + "')")
                 updateBtn.setAttribute("onclick", "getProductById('" + product._id + "')")
                 updateBtn.innerHTML = "Opdater produkt"
 
@@ -79,8 +78,7 @@
                 productCard.appendChild(productCategory);
                 productCard.appendChild(productdescription);
                 productCard.appendChild(productPrice);
-                // productCard.appendChild(updateBtn);
-                // productCard.appendChild(deleteBtn);
+
 
 
             });
@@ -164,7 +162,6 @@ function importData() {
     let input = document.createElement('input');
     input.type = 'file';
     input.onchange = _ => {
-        // you can use this method to get file and perform respective operations
         let files = Array.from(input.files);
         console.log(files);
     };
