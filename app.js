@@ -11,6 +11,7 @@ const userRouter = require('./routes2/userRoutes'); // Muligvis ligegyldig i app
 
 const productRouter = require("./routes/productRoutes");
 const serviceRouter = require("./routes/serviceRoutes");
+const messageRouter = require("./routes/messageRoutes");
 
 
 
@@ -40,7 +41,8 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(productRouter);
-app.use(serviceRouter)
+app.use(serviceRouter);
+app.use(messageRouter);
 
 // error handling middleware
 app.use((err, req, res, next) => {

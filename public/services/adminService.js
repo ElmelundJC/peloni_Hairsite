@@ -86,7 +86,7 @@ function deleteServiceById(id) {
     }
 };
 
-// Update a project by it's id
+// Update a service by it's id
 function updateServiceById(id) {
     try {
         $.ajax({

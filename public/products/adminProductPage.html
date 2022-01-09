@@ -41,7 +41,7 @@
 
     <section class="product">
         <h2 class="display-4 text-center text-white">Produkter</h2>
-
+        <h3 class="display-6 text-center text-white">Disse produkter kan købes i salonen</h3>
         <div class="row" id="cardRow">
 
             <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5" id="newProduct"
@@ -73,6 +73,11 @@
                         <h5 class="modal-title text-center" id="exampleModalLabel">Indtast product information</h5>
                     </div>
                     <div class="modal-body">
+                        <img class="card-img-top" src="../images/product1.jpg" height="185px" width="185px"
+                            alt="Card image cap">
+                        <p></p>
+                        <button type="button" class="btn btn-secondary" onclick="importData()">Vælg
+                            billede</button>
                         <form action="admin/productPage" method="POST" id="newProductForm">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Navn</label>

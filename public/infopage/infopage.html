@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
         integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="../infopage/style.css">
-
+    <script type="text/javascript" src="../infopage/info.js"></script>
     <Title>Info</Title>
 </head>
 <!-- Adding a scrollspy to listen for scrolls. data-target must mach the targeted id -> here the ul with id nacScrollspy -->
@@ -29,13 +29,33 @@
                 <div class="card mb-4 rounded-3 shadow-sm">
                     <h1>Praktisk Information</h1>
 
-                    <h3>Nye Kunder</h3>
+                    <!-- <h3>Nye Kunder</h3>
                     <div class="info-text">
                         <p>Her hos Peloni påskønner vi alle de nye kunder i salonen og mener derfor at hvis du ikke er
                             et kendt ansigt vil få 25% rabat på din første klipning.</p>
-                    </div>
+                    </div> -->
                     <br>
-                    <h3>Covid-19 restriktioner</h3>
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="messages-table">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Titel</th>
+                                        <th scope="col">Besked</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody id="addData">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+                    <!-- <h3>Covid-19 restriktioner</h3>
                     <div class="info-text">
                         <p>Da der for nyligt er blevet føjet restriktioner det danske samfund igen. Er det derfor
                             påkrævet at kunne vise et gyldig coronapas inden klip.
@@ -43,7 +63,7 @@
                             Skulle du være så uheldig at blive smittet med covid-19, vil jeg her hos Peloni sætte stor
                             pris på at du ringer og aflyse så hurtigt som muligt.
                         </p>
-                    </div>
+                    </div> -->
                     <br>
                 </div>
             </div>
