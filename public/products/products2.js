@@ -92,6 +92,111 @@
 
 })();
 
+(async function getSalesProducts() {
+    try {
+        $.ajax({
+            method: "GET",
+            url: "/admin/productPage",
+            dataType: "json"
+        }).done(function (data) {
+            $.each(data, function (i, product) {
+
+                if (product.isActiveOffer === "on") {
+                    $("#data")
+
+                    let cardDiv = document.createElement("div");
+                    cardDiv.setAttribute("class", "col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5")
+
+                    let productCard = document.createElement("card");
+                    productCard.setAttribute("class", "card bg-light mb-3");
+                    productCard.setAttribute("style", style = "width: 18rem;")
+                    productCard.setAttribute("id", "cardData");
+
+                    let row = document.getElementById("cardRow1");
+                    row.appendChild(cardDiv);
+                    cardDiv.appendChild(productCard);
+
+                    let data = document.getElementById("cardData");
+
+                    let productImage = document.createElement("img");
+                    productImage.setAttribute("class", "card-img-top")
+                    productImage.setAttribute("src", "../images/product1.jpg");
+
+                    productCard.appendChild(productImage)
+
+                    let productInfo = document.createElement("ul");
+                    productInfo.setAttribute("id", "productInfo");
+                    productInfo.setAttribute("class", "list-group");
+
+                    let productName = document.createElement("a")
+                    productName.setAttribute("href", "#")
+                    productName.setAttribute("data-toggle", "modal")
+                    productName.setAttribute("data-target", "#modal")
+                    productName.setAttribute("class", "product-name")
+                    productName.setAttribute("onclick", "getProductById('" + product._id + "')")
+
+
+                    let productCategory = document.createElement("li");
+                    productCategory.setAttribute("class", "list-group-item")
+                    productCategory.setAttribute("id", "product-category");
+
+                    let productdescription = document.createElement("li");
+                    productdescription.setAttribute("class", "list-group-item")
+                    productdescription.setAttribute("id", "product-description");
+
+                    let productPrice = document.createElement("li");
+                    productPrice.setAttribute("class", "list-group-item")
+                    productPrice.setAttribute("id", "product-price");
+
+                    let salesPrice = document.createElement("li");
+                    salesPrice.setAttribute("class", "list-group-item")
+                    salesPrice.setAttribute("id", "sales-price");
+
+                    let deleteBtn = document.createElement("button")
+                    deleteBtn.setAttribute("class", "btn btn-danger")
+                    deleteBtn.setAttribute("id", "deleteBtn")
+                    deleteBtn.setAttribute("onclick", "deleteProductById('" + product._id + "')")
+                    deleteBtn.innerHTML = "Slet produkt"
+
+                    let updateBtn = document.createElement("button")
+                    updateBtn.setAttribute("href", "#")
+                    updateBtn.setAttribute("class", "btn btn-primary")
+                    updateBtn.setAttribute("data-toggle", "modal")
+                    updateBtn.setAttribute("data-target", "#modal")
+                    // productName.setAttribute("class", "product-name")
+                    // updateBtn.setAttribute("onclick", "updateProductById('" + product._id + "')")
+                    updateBtn.setAttribute("onclick", "getProductById('" + product._id + "')")
+                    updateBtn.innerHTML = "Opdater produkt"
+
+                    productName.innerHTML = product.name;
+                    productCategory.innerHTML = product.category;
+                    productdescription.innerHTML = product.description;
+                    productPrice.innerHTML = product.price;
+                    salesPrice.textContent = product.salesPrice;
+
+
+                    productCard.appendChild(productName);
+                    productCard.appendChild(productCategory);
+                    productCard.appendChild(productdescription);
+                    productCard.appendChild(productPrice);
+                    productCard.appendChild(salesPrice);
+
+                    // productCard.appendChild(updateBtn);
+                    // productCard.appendChild(deleteBtn);
+                }
+
+
+
+
+
+            });
+        })
+
+    } catch (error) {
+        console.log(error);
+    }
+
+})();
 
 // Get a project by it's id
 function getProductById(id) {

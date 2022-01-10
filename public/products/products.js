@@ -49,6 +49,14 @@
                 productPrice.setAttribute("class", "list-group-item")
                 productPrice.setAttribute("id", "product-price");
 
+                let salesPrice = document.createElement("li");
+                salesPrice.setAttribute("class", "list-group-item")
+                salesPrice.setAttribute("id", "sales-price");
+
+                let isActiveOffer = document.createElement("li");
+                isActiveOffer.setAttribute("class", "list-group-item")
+                isActiveOffer.setAttribute("id", "isActiveOffer");
+
                 let deleteBtn = document.createElement("button")
                 deleteBtn.setAttribute("class", "btn btn-danger")
                 deleteBtn.setAttribute("id", "deleteBtn")
@@ -67,11 +75,16 @@
                 productCategory.textContent = product.category;
                 productdescription.textContent = product.description;
                 productPrice.textContent = product.price;
+                salesPrice.textContent = product.salesPrice;
+                isActiveOffer.textContent = product.isActiveOffer;
+
 
                 productCard.appendChild(productName);
                 productCard.appendChild(productCategory);
                 productCard.appendChild(productdescription);
                 productCard.appendChild(productPrice);
+                productCard.appendChild(salesPrice);
+                productCard.appendChild(isActiveOffer);
                 productCard.appendChild(updateBtn);
                 productCard.appendChild(deleteBtn);
 
@@ -100,6 +113,8 @@ function getProductById(id) {
             $("#editCategory").val(product.category);
             $("#editDescription").val(product.description);
             $("#editPrice").val(product.price);
+            $("#editSalesPrice").val(product.salesPrice);
+            $("#editIsActiveOffer").val(product.isActiveOffer);
 
             $("#updateForm").attr("action", "/products/" + product._id);
         }
