@@ -45,6 +45,7 @@ exports.updateMe = catchAsync (async (req, res, next) => {
     });
 });
 
+// Vi ønsker ikke at delete brugeren totalt fra databasen. Da vi ikke er helt færdig med at behandle personen i systemet. 
 exports.deleteMe = catchAsync(async (req, res, next) => {
     await User.findByIdAndUpdate(req.user.id, {active: false});
 

@@ -12,7 +12,7 @@ const EventSchema = new Schema({
     },
     timeSlot: {
         type: String,
-        default: "08:00",
+        default: "00:00",
     },
     hairCut: {
         type: Boolean,
@@ -71,7 +71,7 @@ const userSchema = new Schema({
     phone: {
         type: Number,
         required: [true, "Please provide your phonenumber"],
-        minlength: 8,
+        minlength: 7,
     },
     age: {
         type: Number,

@@ -3,10 +3,10 @@ require('dotenv').config();
 require('./database/db');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit').default;
-const helmet = require('helmet');
-const mongoSanitize = require('express-mongo-sanitize');
-const xss = require('xss-clean');
-const hpp = require('hpp');
+// const helmet = require('helmet');
+// const mongoSanitize = require('express-mongo-sanitize');
+// const xss = require('xss-clean');
+// const hpp = require('hpp');
 const cors = require('cors');
 
 const AppError = require('./utils/appError');
@@ -28,7 +28,7 @@ const fs = require("fs");
 // ******* Middleware *********
 
 // Set Security HTTP headers
-app.use(helmet());
+// app.use(helmet());
 
 // Development logging
 console.log(process.env.NODE_ENV);
@@ -50,16 +50,16 @@ app.use('/api', limiter);
 
 // Data sanitization mod NoSQL query injection
 // Fjerner dollar tegn og . fra requests.
-app.use(mongoSanitize());
+// app.use(mongoSanitize());
 
 // Data sanitization mod XSS
 // nem omskrivning af html tegn < > som sikrer os mod xss angreb.
-app.use(xss());
+// app.use(xss());
 
 // Prevent parameter pollution hvilket fjerner duplikater i query string // Whitelisting gør det muligt for nogle parametre at blive duplikeret i qString
-app.use(hpp({
-    whitelist: ['events']
-}));
+// app.use(hpp({
+//     whitelist: ['events']
+// }));
 
 app.use(express.urlencoded({ extended: false }));
 

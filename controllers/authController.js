@@ -45,6 +45,7 @@ exports.signup = catchAsync(async (req, res, next) => {
         password: req.body.password,
         passwordConfirm: req.body.password,
         passwordChangedAt: req.body.passwordChangedAt,
+        phone: req.body.phone,
         role: req.body.role,
         age: req.body.age,
         message: req.body.message,
@@ -109,7 +110,7 @@ exports.protect = catchAsync(async (req, res, next) => {
             return next(new AppError('The user belonging to this token does no longer exist.', 401));
         }
 
-        // 4) Check if user chaged password after the token was issued
+        // 4) Check if user changed password after the token was issued
         if (currentUser.changedPasswordAfter(decoded.iat)) {
             return next(new AppError('User recently changed password! Please log in again', 401));
         };
