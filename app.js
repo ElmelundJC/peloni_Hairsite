@@ -2,6 +2,7 @@ const express = require("express");
 require('dotenv').config();
 require('./database/db');
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
 const rateLimit = require('express-rate-limit').default;
 // const helmet = require('helmet');
 // const mongoSanitize = require('express-mongo-sanitize');
@@ -13,6 +14,7 @@ const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const User = require('./models/userModel');
 const userRouter = require('./routes2/userRoutes'); // Muligvis ligegyldig i app.js
+const authController = require('./controllers/authController');
 
 const productRouter = require("./routes/productRoutes");
 const serviceRouter = require("./routes/serviceRoutes");
@@ -61,7 +63,6 @@ app.use('/api', limiter);
 //     whitelist: ['events']
 // }));
 
-app.use(express.urlencoded({ extended: false }));
 
 // body parser
 app.use(bodyParser.json());
@@ -69,6 +70,7 @@ app.use(bodyParser.json());
 // Serving static files
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(productRouter);
 app.use(serviceRouter);
 
@@ -86,6 +88,8 @@ const about = fs.readFileSync(__dirname + "/public/about/about.html", "utf-8");
 const services = fs.readFileSync(__dirname + "/public/services/services.html", "utf-8");
 const products = fs.readFileSync(__dirname + "/public/products/productPage.html", "utf-8");
 const infopage = fs.readFileSync(__dirname + "/public/infopage/infopage.html", "utf-8");
+const userloginpage = fs.readFileSync(__dirname + "/public/userLogin/userLogin.html", "utf-8");
+const userSignuppage = fs.readFileSync(__dirname + "/public/userSignUp/userSignup.html", "utf-8");
 const bookingpage = fs.readFileSync(__dirname + "/public/bookingspage/bookingspage.html", "utf-8");
 
 // Admin views
@@ -119,59 +123,50 @@ app.get("/info", (req, res) => {
     res.send(navbar + infopage);
 });
 
-app.get("/booking", (req, res) => {
-    res.send(navbar + bookingpage);
+app.get('/userLogin', (req, res) => {
+    res.send(userloginpage);
+})
+
+app.get('/userSignup', (req, res) => {
+    res.send(userSignuppage);
 });
 
-// app.get("/admingBooking", protected, (req, res) => {
-//     res.status(500).send(bookingpage);
-// });
-
+app.get("/booking", authController.protect, authController.restrictTo('admin', 'user'), (req, res) => {
+    res.send(bookingpage);
+});
 
 
 
 // Admin routes
 app.get("/adminLogin", (req, res) => {
-    res.send(adminLogin)
+    res.status(200).send(adminLogin);
 });
 
 
-app.get("/admin", (req, res) => {
+app.get("/admin", authController.protect, authController.restrictTo('admin'), (req, res) => {
     res.send(adminNavbar + adminFrontpage);
 });
 
-app.get("/adminAbout", (req, res) => {
+app.get("/adminAbout", authController.protect, authController.restrictTo('admin'), (req, res) => {
     res.send(adminNavbar + adminAbout);
 });
 
-app.get("/adminServices", (req, res) => {
+app.get("/adminServices", authController.protect, authController.restrictTo('admin'), (req, res) => {
     res.send(adminNavbar + adminServices);
 });
 
-app.get("/adminProductPage", (req, res) => {
+app.get("/adminProductPage", authController.protect, authController.restrictTo('admin'), (req, res) => {
     res.send(adminNavbar + adminProducts);
 })
 
-app.get("/adminInfo", (req, res) => {
+app.get("/adminInfo", authController.protect, authController.restrictTo('admin'), (req, res) => {
     res.send(adminNavbar + adminInfopage);
 });
 
-app.get("/adminBooking", (req, res) => {
+app.get("/adminBooking", authController.protect, authController.restrictTo('admin'), (req, res) => {
     res.send(adminNavbar + adminBookingpage);
 });
 
-
-
-app.post("/signup", async (req, res) => {
-    try {
-        const newUser = await User.create(req.body)
-
-        console.log(newUser);
-        res.status(201).send(newUser);
-    } catch (e) {
-        res.status(400).send(e)
-    }
-});
 
 // ROUTES
 app.use('/api/users', userRouter);

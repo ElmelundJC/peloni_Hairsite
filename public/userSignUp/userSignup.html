@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="../userSignUp/style.css">
+
+</head>
+
+<body>
+
+    <div class="main">
+
+        <div class="centered">
+            <h1>Velkommen</h1>
+            <h1>Værsgo at skrive dig op</h1>
+
+            <form id="signUpForm">
+                <div class="inputBox">
+                    <input type="text" name="name" id="name" autocomplete="off" placeholder="Navn">
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="email" id="email" autocomplete="off" placeholder="Email">
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="phone" id="phone" placeholder="Telefonnummer">
+                </div>
+                <div class="inputBox">
+                    <input type="number" name="age" id="age" placeholder="Alder">
+                </div>
+                <div class="inputBox">
+                    <input type="password" name="password" id="password" placeholder="Password">
+                </div>               
+                <div class="inputBox">
+                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Gentag password">
+                </div>
+                <br>
+                <div class="inputBox">
+                    <input type="submit" id="signupBtn" value="Tilmeld">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('#signUpForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+ 
+        const signupBtn = document.querySelector('#signupBtn');
+        const name = document.querySelector('input[name="name"]');
+        const email = document.querySelector('input[name="email"]');
+        const phone = document.querySelector('input[name="phone"]');
+        const age = document.querySelector('input[name="age"]');
+        const password = document.querySelector('input[name="password"]');
+        const confirmPassword = document.querySelector('input[name="confirmPassword"]');
+   
+        const result = await fetch('/api/users/signup', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              name: name.value,
+              email: email.value,
+              phone: phone.value,
+              age: age.value,
+              password: password.value,
+              passwordConfirm: confirmPassword.value,
+            })
+          })
+          .then(res => {
+              console.log(res);
+            return res.json()
+          })
+          .then(data => {
+            console.log(data)
+            if (data.status === 'succes') {
+              window.location.href = '/booking'
+            } else {
+              window.location.href = '/userSignup'
+            }
+          })
+          .catch(error => console.log(error));
+      });
+      </script>
+
+</body>
+
+</html>

@@ -15,7 +15,7 @@
     <div class="main">
 
         <div class="centered">
-            <h1>Velkommen Joan</h1>
+            <h1>Velkommen</h1>
             <h1>Værsgo at logge ind</h1>
 
             <form id="loginForm">
@@ -25,11 +25,12 @@
                 <div class="inputBox">
                     <input type="password" name="password" id="password" autocomplete="off" placeholder="Password">
                 </div>
+                <br>
                 <div class="inputBox">
                     <input type="submit" id="loginBtn" value="Login">
                 </div>
                 <!-- <p class="forget">Forgot Password ? <a href="#">Click Here</a></p> -->
-                <p class="forget">Don't have an account ? <a href="/signup">Sign up</a></p>
+                <p class="forget"><a href="/userSignup" style="color:rgb(68, 255, 0)">Tilmeld dig her</a></p>
             </form>
         </div>
 
@@ -68,9 +69,9 @@
           .then(data => {
             console.log(data)
             if (data.status === 'succes') {
-              window.location.href = '/admin'
+              window.location.href = '/booking'
             } else {
-              window.location.href = '/adminLogin'
+              window.location.href = '/userLogin'
             }
           })
           .catch(error => console.log(error));

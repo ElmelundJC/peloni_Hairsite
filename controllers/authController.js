@@ -90,11 +90,21 @@ exports.login = catchAsync(async (req, res, next) => {
     // });
 });
 
+exports.logout = (req, res) => {
+    res.cookie('jwt', '', {
+        expires: new Date(Date.now() + 1 * 1000),
+        httpOnly: true,
+    });
+    res.redirect('/');
+};
+
 exports.protect = catchAsync(async (req, res, next) => {
         let token;
         // 1) Getting token and check if it exists
         if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
-            token = req.headers.authorization.split(' ')[1];
+            token = req.headers.authorization.split(' ')[1];   
+        } else if (req.cookies.jwt) {
+            token = req.cookies.jwt;
         }
 
         if (!token) {
