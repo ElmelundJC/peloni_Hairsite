@@ -30,6 +30,27 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use(cors());
 
+// File upload example
+const multer = require("multer");
+const upload = multer({
+    dest: "images2",
+    limits: {
+        fileSize: 1000000
+    },
+    fileFilter(req, file, cb) {
+        if(!file.originalname.match(/\.(doc|docx)$/)) {
+            return cb(new Error("Please upload a Word document"))
+        }
+
+        cb(undefined, true)
+
+    }
+});
+
+app.post("/upload", upload.single("upload"), (req, res) => {
+    res.send()
+});
+
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));

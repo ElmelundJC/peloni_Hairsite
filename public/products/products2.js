@@ -24,9 +24,9 @@
 
                 let productImage = document.createElement("img");
                 productImage.setAttribute("class", "card-img-top")
-                productImage.setAttribute("src", "../images/product1.jpg");
+                productImage.setAttribute("src", "/products/" + product._id + "/productImage/");
 
-                productCard.appendChild(productImage)
+
 
                 let productInfo = document.createElement("ul");
                 productInfo.setAttribute("id", "productInfo");
@@ -52,21 +52,21 @@
                 productPrice.setAttribute("class", "list-group-item")
                 productPrice.setAttribute("id", "product-price");
 
-                let deleteBtn = document.createElement("button")
-                deleteBtn.setAttribute("class", "btn btn-danger")
-                deleteBtn.setAttribute("id", "deleteBtn")
-                deleteBtn.setAttribute("onclick", "deleteProductById('" + product._id + "')")
-                deleteBtn.innerHTML = "Slet produkt"
+                // let deleteBtn = document.createElement("button")
+                // deleteBtn.setAttribute("class", "btn btn-danger")
+                // deleteBtn.setAttribute("id", "deleteBtn")
+                // deleteBtn.setAttribute("onclick", "deleteProductById('" + product._id + "')")
+                // deleteBtn.innerHTML = "Slet produkt"
 
-                let updateBtn = document.createElement("button")
-                updateBtn.setAttribute("href", "#")
-                updateBtn.setAttribute("class", "btn btn-primary")
-                updateBtn.setAttribute("data-toggle", "modal")
-                updateBtn.setAttribute("data-target", "#modal")
-                // productName.setAttribute("class", "product-name")
-                // updateBtn.setAttribute("onclick", "updateProductById('" + product._id + "')")
-                updateBtn.setAttribute("onclick", "getProductById('" + product._id + "')")
-                updateBtn.innerHTML = "Opdater produkt"
+                // let updateBtn = document.createElement("button")
+                // updateBtn.setAttribute("href", "#")
+                // updateBtn.setAttribute("class", "btn btn-primary")
+                // updateBtn.setAttribute("data-toggle", "modal")
+                // updateBtn.setAttribute("data-target", "#modal")
+                // // productName.setAttribute("class", "product-name")
+                // // updateBtn.setAttribute("onclick", "updateProductById('" + product._id + "')")
+                // updateBtn.setAttribute("onclick", "getProductById('" + product._id + "')")
+                // updateBtn.innerHTML = "Opdater produkt"
 
                 productName.innerHTML = product.name;
                 productCategory.innerHTML = product.category;
@@ -74,7 +74,7 @@
                 productPrice.innerHTML = product.price;
 
 
-
+                productCard.appendChild(productImage)
                 productCard.appendChild(productName);
                 productCard.appendChild(productCategory);
                 productCard.appendChild(productdescription);
@@ -120,9 +120,9 @@
 
                     let productImage = document.createElement("img");
                     productImage.setAttribute("class", "card-img-top")
-                    productImage.setAttribute("src", "../images/product1.jpg");
+                    productImage.setAttribute("src", "/products/" + product._id + "/productImage/");
 
-                    productCard.appendChild(productImage)
+
 
                     let productInfo = document.createElement("ul");
                     productInfo.setAttribute("id", "productInfo");
@@ -152,21 +152,21 @@
                     salesPrice.setAttribute("class", "list-group-item")
                     salesPrice.setAttribute("id", "sales-price");
 
-                    let deleteBtn = document.createElement("button")
-                    deleteBtn.setAttribute("class", "btn btn-danger")
-                    deleteBtn.setAttribute("id", "deleteBtn")
-                    deleteBtn.setAttribute("onclick", "deleteProductById('" + product._id + "')")
-                    deleteBtn.innerHTML = "Slet produkt"
+                    // let deleteBtn = document.createElement("button")
+                    // deleteBtn.setAttribute("class", "btn btn-danger")
+                    // deleteBtn.setAttribute("id", "deleteBtn")
+                    // deleteBtn.setAttribute("onclick", "deleteProductById('" + product._id + "')")
+                    // deleteBtn.innerHTML = "Slet produkt"
 
-                    let updateBtn = document.createElement("button")
-                    updateBtn.setAttribute("href", "#")
-                    updateBtn.setAttribute("class", "btn btn-primary")
-                    updateBtn.setAttribute("data-toggle", "modal")
-                    updateBtn.setAttribute("data-target", "#modal")
-                    // productName.setAttribute("class", "product-name")
-                    // updateBtn.setAttribute("onclick", "updateProductById('" + product._id + "')")
-                    updateBtn.setAttribute("onclick", "getProductById('" + product._id + "')")
-                    updateBtn.innerHTML = "Opdater produkt"
+                    // let updateBtn = document.createElement("button")
+                    // updateBtn.setAttribute("href", "#")
+                    // updateBtn.setAttribute("class", "btn btn-primary")
+                    // updateBtn.setAttribute("data-toggle", "modal")
+                    // updateBtn.setAttribute("data-target", "#modal")
+                    // // productName.setAttribute("class", "product-name")
+                    // // updateBtn.setAttribute("onclick", "updateProductById('" + product._id + "')")
+                    // updateBtn.setAttribute("onclick", "getProductById('" + product._id + "')")
+                    // updateBtn.innerHTML = "Opdater produkt"
 
                     productName.innerHTML = product.name;
                     productCategory.innerHTML = product.category;
@@ -174,7 +174,7 @@
                     productPrice.innerHTML = product.price;
                     salesPrice.textContent = product.salesPrice;
 
-
+                    productCard.appendChild(productImage)
                     productCard.appendChild(productName);
                     productCard.appendChild(productCategory);
                     productCard.appendChild(productdescription);
@@ -207,7 +207,7 @@ function getProductById(id) {
             url: "/products/" + id,
             dataType: "json"
         }).done(function (product) {
-
+            $("#editImg").val(product.productImage);
             $("#editName").val(product.name);
             $("#editCategory").val(product.category);
             $("#editDescription").val(product.description);

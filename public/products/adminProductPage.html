@@ -73,12 +73,20 @@
                         <h5 class="modal-title text-center" id="exampleModalLabel">Indtast product information</h5>
                     </div>
                     <div class="modal-body">
-                        <img class="card-img-top" src="../images/product1.jpg" height="185px" width="185px"
+                        <!-- <img class="card-img-top" src="../images/product1.jpg" height="185px" width="185px"
                             alt="Card image cap">
                         <p></p>
                         <button type="button" class="btn btn-secondary" onclick="importData()">Vælg
-                            billede</button>
+                            billede</button> -->
                         <form action="admin/productPage" method="POST" id="newProductForm">
+                            <div>
+                                <!-- <img class="card-img-top" src="../images/product1.jpg" height="185px" width="185px"
+                                    alt="Card image cap"> -->
+                                <p></p>
+                                <input id="editImg" type="file" name="productImage">
+                                <!-- <button type="button" class="btn btn-secondary" onclick="importData()">Vælg
+                                    billede</button> -->
+                            </div>
                             <div class="mb-3">
                                 <label for="name" class="form-label">Navn</label>
                                 <input type="text" class="form-control" id="name" name="name">
@@ -120,12 +128,16 @@
                         <h5 class="modal-title" id="modalTitle">Opdater produktinformation</h5>
                     </div>
                     <div class="modal-body">
-                        <img class="card-img-top" src="../images/product1.jpg" height="185px" width="185px"
-                            alt="Card image cap">
-                        <p></p>
-                        <button type="button" class="btn btn-secondary" onclick="importData()">Vælg
-                            billede</button>
+
                         <form id="updateForm" action="" method="POST">
+                            <div>
+                                <!-- <img class="card-img-top" src="../images/product1.jpg" height="185px" width="185px"
+                                    alt="Card image cap"> -->
+                                <p></p>
+                                <input id="editImg" type="file" name="productImage">
+                                <!-- <button type="button" class="btn btn-secondary" onclick="importData()">Vælg
+                                    billede</button> -->
+                            </div>
                             <div class="form-group">
                                 <label for="name">Navn</label>
                                 <input type="text" name="name" class="form-control" id="editName" required>

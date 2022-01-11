@@ -25,9 +25,8 @@
 
                 let productImage = document.createElement("img");
                 productImage.setAttribute("class", "card-img-top")
-                productImage.setAttribute("src", "../images/product1.jpg");
+                productImage.setAttribute("src", "/products/" + product._id + "/productImage/")
 
-                productCard.appendChild(productImage)
 
                 let productInfo = document.createElement("ul");
                 productInfo.setAttribute("id", "productInfo");
@@ -78,7 +77,7 @@
                 salesPrice.textContent = product.salesPrice;
                 isActiveOffer.textContent = product.isActiveOffer;
 
-
+                productCard.appendChild(productImage)
                 productCard.appendChild(productName);
                 productCard.appendChild(productCategory);
                 productCard.appendChild(productdescription);
@@ -168,7 +167,18 @@ function updateProductById(id) {
 }
 
 
-
+function importImage(id) {
+    try {
+        $.ajax({
+            method: "GET",
+            url: "/products/" + id + "/productImage/",
+            dataType: "json"
+        }).done()
+        //location.reload()
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 function importData() {
     let input = document.createElement('input');
