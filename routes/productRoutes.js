@@ -110,10 +110,10 @@ const upload = multer({
 });
 
 router.post("/productImage/:id", upload.single("productImage"), async (req, res) => {
-
+    console.log("post" + 1)
     try {
         //console.log(req.file.buffer)
-        await Product.findByIdAndUpdate(req.params.id, { productImage: req.file.buffer });
+        await Product.findByIdAndUpdate(req.params.id.trim(), { productImage: req.file.buffer });
         res.send()
     } catch (e) {
         console.log(e)
@@ -131,6 +131,7 @@ router.delete("/productImage/:id", async (req, res) => {
 })
 
 router.get("/products/:id/productImage", async (req, res) => {
+    console.log("get" + 1)
     try {
         const product = await Product.findOne({ _id: req.params.id });
 
