@@ -25,9 +25,9 @@
 
                 let productImage = document.createElement("img");
                 productImage.setAttribute("class", "card-img-top")
-                productImage.setAttribute("src", "../images/product1.jpg");
+                productImage.setAttribute("src", "/products/" + product._id + "/productImage/")
 
-                productCard.appendChild(productImage)
+
 
                 let productInfo = document.createElement("ul");
                 productInfo.setAttribute("id", "productInfo");
@@ -79,6 +79,7 @@
                 isActiveOffer.textContent = product.isActiveOffer;
 
 
+                productCard.appendChild(productImage)
                 productCard.appendChild(productName);
                 productCard.appendChild(productCategory);
                 productCard.appendChild(productdescription);
@@ -128,7 +129,9 @@ function getProductById(id) {
 
 // Delete a project by its ID 
 function deleteProductById(id) {
+    console.log(1)
     if (confirm("Er du sikker!")) {
+        console.log(2)
         try {
             $.ajax({
                 method: "DELETE",
@@ -167,7 +170,18 @@ function updateProductById(id) {
     }
 }
 
-
+function importImage(id) {
+    try {
+        $.ajax({
+            method: "GET",
+            url: "/products/" + id + "/productImage/",
+            dataType: "json"
+        }).done()
+        //location.reload()
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 function importData() {

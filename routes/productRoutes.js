@@ -42,7 +42,7 @@ router.get("/admin/productPage", async (req, res) => {
 router.get("/products/:id", async (req, res) => {
     try {
         const product = await Product.findOne({ _id: req.params.id });
-        console.log(product);
+        //console.log(product);
 
         if (!product) {
             return res.status(404).send();
@@ -58,7 +58,7 @@ router.post("/products/:id", async (req, res) => {
     const updates = Object.keys(req.body);
     try {
         const product = await Product.findOne({ _id: req.params.id });
-        console.log(product);
+        //console.log(product);
 
         if (!product) {
             return res.status(404).send();
@@ -80,7 +80,7 @@ router.post("/products/:id", async (req, res) => {
 router.delete("/admin/products/:id", async (req, res) => {
     try {
         const product = await Product.findOneAndDelete({ _id: req.params.id });
-        console.log(product);
+        //console.log(product);
 
         if (!product) {
             res.status(404).send();
@@ -114,11 +114,14 @@ const multerFilter = (req, file, cb) => {
 
 const upload = multer({
     storage: multerStorage,
-    fileFilter: multerFilter
+    fileFilter: multerFilter,
+    limits: {
+        fileSize: 1000000
+    },
 })
 
 router.post("/productImage/:id", upload.single("productImage"), async (req, res) => {
-    console.log("post" + 1)
+    console.log("post image" + 1)
     console.log(req.file)
     console.log(req.params.id.trim())
     try {
@@ -145,17 +148,19 @@ router.delete("/productImage/:id", async (req, res) => {
 
 router.get("/products/:id/productImage", async (req, res) => {
     console.log("get" + 1)
-    console.log(req.body)
     console.log(req.params.id.trim())
-    console.log(req.params.name)
+
     try {
         const product = await Product.findOne({ _id: req.params.id.trim() });
-        console.log(product)
+        //console.log(product)
+
         if (!product || !product.productImage) {
             throw new Error()
         }
 
         //res.set("Content-Type", "image/jpg")
+        //res.send({ productImage: req.file.originalname })
+        //console.log()
         res.send(product.productImage)
     } catch (e) {
         res.status(404).send()

@@ -24,9 +24,9 @@
 
                 let productImage = document.createElement("img");
                 productImage.setAttribute("class", "card-img-top")
-                productImage.setAttribute("src", "../images/product1.jpg");
+                productImage.setAttribute("src", "/products/" + product._id + "/productImage/");
 
-                productCard.appendChild(productImage)
+
 
                 let productInfo = document.createElement("ul");
                 productInfo.setAttribute("id", "productInfo");
@@ -74,7 +74,7 @@
                 productPrice.innerHTML = product.price;
 
 
-
+                productCard.appendChild(productImage)
                 productCard.appendChild(productName);
                 productCard.appendChild(productCategory);
                 productCard.appendChild(productdescription);
@@ -120,9 +120,10 @@
 
                     let productImage = document.createElement("img");
                     productImage.setAttribute("class", "card-img-top")
-                    productImage.setAttribute("src", "../images/product1.jpg");
+                    productImage.setAttribute("src", "/products/" + product._id + "/productImage/");
+                    //productImage.setAttribute("src", `/products/productImage/${product.productImage}`);
 
-                    productCard.appendChild(productImage)
+
 
                     let productInfo = document.createElement("ul");
                     productInfo.setAttribute("id", "productInfo");
@@ -168,13 +169,14 @@
                     updateBtn.setAttribute("onclick", "getProductById('" + product._id + "')")
                     updateBtn.innerHTML = "Opdater produkt"
 
+                    productImage.innerHTML = product.productImage;
                     productName.innerHTML = product.name;
                     productCategory.innerHTML = product.category;
                     productdescription.innerHTML = product.description;
                     productPrice.innerHTML = product.price;
                     salesPrice.textContent = product.salesPrice;
 
-
+                    productCard.appendChild(productImage)
                     productCard.appendChild(productName);
                     productCard.appendChild(productCategory);
                     productCard.appendChild(productdescription);
@@ -207,7 +209,7 @@ function getProductById(id) {
             url: "/products/" + id,
             dataType: "json"
         }).done(function (product) {
-
+            $("#editImg").val(product.productImage);
             $("#editName").val(product.name);
             $("#editCategory").val(product.category);
             $("#editDescription").val(product.description);
