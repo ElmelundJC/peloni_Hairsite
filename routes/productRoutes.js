@@ -42,7 +42,7 @@ router.get("/admin/productPage", async (req, res) => {
 router.get("/products/:id", async (req, res) => {
     try {
         const product = await Product.findOne({ _id: req.params.id });
-        //console.log(product);
+        console.log(product);
 
         if (!product) {
             return res.status(404).send();
@@ -148,6 +148,7 @@ router.delete("/productImage/:id", async (req, res) => {
 
 router.get("/products/:id/productImage", async (req, res) => {
     console.log("get" + 1)
+    //console.log(req.file)
     console.log(req.params.id.trim())
 
     try {

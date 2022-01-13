@@ -25,7 +25,7 @@
 
                 let productImage = document.createElement("img");
                 productImage.setAttribute("class", "card-img-top")
-                productImage.setAttribute("src", "/products/" + product._id + "/productImage/")
+                productImage.setAttribute("src", "/products/productImages/" + product.productImage)
 
 
 
