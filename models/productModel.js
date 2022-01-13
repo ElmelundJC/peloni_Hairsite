@@ -32,7 +32,8 @@ const productSchema = mongoose.Schema({
     },
     productImage: {
         type: String,
-
+        default: null,
+        //data: Buffer
     }
 }, {
     timestamps: true

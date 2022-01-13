@@ -2,7 +2,7 @@ const express = require("express");
 const router = new express.Router()
 const Product = require("../models/productModel");
 const mongoose = require('mongoose');
-
+const multer = require("multer");
 const bodyParser = require('body-parser');
 
 router.use(express.urlencoded({ extended: true }));
@@ -92,5 +92,80 @@ router.delete("/admin/products/:id", async (req, res) => {
     }
 });
 
+// Image upload
+
+const multerStorage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "public/products/productImages");
+    },
+    filename: function (req, file, cb) {
+        const ext = file.mimetype.split("/")[1];
+        cb(null, `produkt-${req.params.id.trim()}-${Date.now()}.${ext}`)
+    }
+});
+
+const multerFilter = (req, file, cb) => {
+    if (file.mimetype.startsWith("image")) {
+        cb(null, true)
+    } else {
+        cb(new Error("Please upload an image!", 400), false)
+    }
+}
+
+const upload = multer({
+    storage: multerStorage,
+    fileFilter: multerFilter
+})
+
+router.post("/productImage/:id", upload.single("productImage"), async (req, res) => {
+    console.log("post" + 1)
+    console.log(req.file)
+    console.log(req.params.id.trim())
+    try {
+        //console.log(req.file.buffer)
+        await Product.findByIdAndUpdate(req.params.id.trim(), { productImage: req.file.originalname });
+        res.send()
+    } catch (e) {
+        console.log(e)
+    }
+});
+
+router.delete("/productImage/:id", async (req, res) => {
+    console.log("delete" + 1)
+    //console.log(req.body)
+    console.log(req.params.id.trim())
+    try {
+        //console.log(req.file.buffer)
+        await Product.findByIdAndUpdate(req.params.id.trim(), { productImage: null });
+        res.send()
+    } catch (e) {
+        console.log(e)
+    }
+});
+
+router.get("/products/:id/productImage", async (req, res) => {
+    console.log("get" + 1)
+    console.log(req.body)
+    console.log(req.params.id.trim())
+    console.log(req.params.name)
+    try {
+        const product = await Product.findOne({ _id: req.params.id.trim() });
+        console.log(product)
+        if (!product || !product.productImage) {
+            throw new Error()
+        }
+
+        //res.set("Content-Type", "image/jpg")
+        res.send(product.productImage)
+    } catch (e) {
+        res.status(404).send()
+    }
+})
+
+router.post("/upload", upload.single("productImage"), (req, res) => {
+    console.log(req.file)
+    console.log(req.body.id)
+    res.send()
+});
 
 module.exports = router;
