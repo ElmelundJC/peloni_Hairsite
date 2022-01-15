@@ -10,6 +10,11 @@ const EventSchema = new Schema({
         type: String,
         default: "Tid taget",
     },
+    date: {
+        type: String,
+        default: "1/1/2022",
+        required: [true, "Date is required for booking an event"],
+    },
     timeSlot: {
         type: String,
         default: "00:00",

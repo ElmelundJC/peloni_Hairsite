@@ -70,7 +70,7 @@ exports.getAllEvents = catchAsync(async (req, res, next) => {
 
 exports.getAllEventsOnUser = catchAsync(async (req, res, next) => {
     const eventsArray = [];
-    const user = await User.findById(req.params.id);
+    const user = await User.findById( { "_id": req.user.id });
 
     eventsArray.push(user.events);
   
@@ -86,7 +86,7 @@ exports.getAllEventsOnUser = catchAsync(async (req, res, next) => {
 });
 
 exports.getSingleEventOnUser = catchAsync(async (req, res, next) => {
-    const user = await User.findOne({ "_id": req.params.id });
+    const user = await User.findById({ "_id": req.user.id });
 
     const userEvent = user.events.id(req.body._id);
     console.log(userEvent);
@@ -104,7 +104,7 @@ exports.getSingleEventOnUser = catchAsync(async (req, res, next) => {
 
 exports.deleteEvent = catchAsync(async (req, res, next) => {
     // update user document
-    const user = await User.updateOne({"_id": req.params.id}, {"$pull": { events: { "_id": req.body._id }}}, {
+    const user = await User.findByIdAndUpdate({"_id": req.user.id}, {"$pull": { events: { "_id": req.body._id }}}, {
         multi: true,
     });
     
@@ -114,8 +114,9 @@ exports.deleteEvent = catchAsync(async (req, res, next) => {
     res.status(200).json({
         status: 'succes',
         token,
+        result: user.events.length,
         data: {
-            user: user,
+            user,
         },
         message: "Event has been deleted",
     });

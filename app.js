@@ -163,7 +163,7 @@ app.get("/adminInfo", authController.protect, authController.restrictTo('admin')
     res.send(adminNavbar + adminInfopage);
 });
 
-app.get("/adminBooking", authController.protect, authController.restrictTo('admin'), (req, res) => {
+app.get("/adminBooking", (req, res) => {
     res.send(adminNavbar + adminBookingpage);
 });
 

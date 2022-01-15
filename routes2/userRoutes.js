@@ -19,11 +19,11 @@ router.delete('/deleteMe', authController.protect, userController.deleteMe);
 
 
 // EventRoutes
-router.get('/getAllEvents', authController.protect, authController.restrictTo('admin', 'user'), eventController.getAllEvents);
-router.get('/getAllEventsOnUser/:id', authController.protect, authController.restrictTo('admin', 'user'), eventController.getAllEventsOnUser);
-router.get('/getSingleEventOnUser/:id', authController.protect, authController.restrictTo('admin', 'user'), eventController.getSingleEventOnUser);
-router.patch('/createEvent/:id', authController.protect, authController.restrictTo('admin', 'user'), eventController.createEvent);
-router.patch('/deleteEvent/:id', authController.protect, authController.restrictTo('admin', 'user'), eventController.deleteEvent);
+router.get('/getAllEvents', eventController.getAllEvents);
+router.get('/getAllEventsOnUser', authController.protect, authController.restrictTo('admin', 'user'), eventController.getAllEventsOnUser);
+router.get('/getSingleEventOnUser', authController.protect, authController.restrictTo('admin', 'user'), eventController.getSingleEventOnUser);
+router.patch('/createEvent', authController.protect, authController.restrictTo('admin', 'user'), eventController.createEvent);
+router.patch('/deleteEvent', authController.protect, authController.restrictTo('admin', 'user'), eventController.deleteEvent);
 
 
 

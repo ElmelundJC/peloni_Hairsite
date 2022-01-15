@@ -109,139 +109,57 @@
                         <form id="bookingForm">
                             <div id="bookingformData">
                                 <h5>Dato</h5>
-                                <input type="date">
+                                <input type="date" id="modalDate">
                             </div>
                             <br>
                             <div id="bookingformData">
                                 <h5>Tid</h5>
-                                <label for="time">Vælg tid</label>
+                                <label id="pickTime" for="time">Vælg tid</label>
                                 <input type="text" hidden>
                             </div>
                             <br>
                             <div id="bookingformData">
                                 <h5>Klip</h5>
-                                <input type="checkbox">
+                                <input type="checkbox" id="hairCutCheckBox">
                             </div>
                             <br>
                             <div id="bookingformData">
                                 <h5>Farve</h5>
-                                <input type="checkbox">
+                                <input type="checkbox" id="colorCheckBox">
                             </div>
                             <br>
                             <div id="bookingformData">
-                                <textarea type="text" id="text" name="Besked" placeholder="Besked..." rows="5"
+                                <textarea type="text" id="eventMessage" name="Besked" placeholder="Besked..." rows="5"
                                     cols="50"></textarea>
                             </div>
                             <div id="formButtons">
-                                <input type="submit" value="Send" id="sendButton" class="button" style="width: 20%">
-                                <input type="reset" id="resetButton" class="button" value="Nulstil" style="width: 20%;">
+                                <input type="submit" id="saveButton" class="button" value="Book Tid" style="width: 25%">
+                                <input type="reset" id="cancelButton" class="button" value="Afbryd" style="width: 25%;">
                             </div>
                         </form>
                     </div>
                     <div id="timetable">
-                        <h5>Tidsskema</h5>
-                        <table>
-                            <tr>
-                                <td>08:00</td>
-                                <td>09:00</td>
-                                <td>10:00</td>
-                            </tr>
-                            <tr>
-                                <td>11:00</td>
-                                <td>12:00</td>
-                                <td>13:00</td>
-                            </tr>
-                            <tr>
-                                <td>14:00</td>
-                                <td>15:00</td>
-                                <td>16:00</td>
-                            </tr>
-                            <tr>
-                                <td>17:00</td>
-                                <td>18:00</td>
-                                <td>19:00</td>
-                            </tr>
+                        <table id="tableBody">
+                            <th id="timetable-header">Tidsskema</th>
+                            <tbody>
+
+                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <input id="eventTitleInput" placeholder="Event Title">
-
-            <button id="saveButton">Save</button>
-            <button id="cancelButton">Cancel</button>
-        </div>
-
-        <div id="deleteEventModal">
-            <h4>Book tid hos Peloni</h4>
-            <div class="container">
-                <div class="form">
-                    <form id="bookingForm">
-                        <div id="bookingformData">
-                            <h5>Dato</h5>
-                            <input type="date">
-                        </div>
-                        <div id="bookingformData">
-                            <h5>Tid</h5>
-                            <input type="time">
-                        </div>
-                        <div id="bookingformData">
-                            <h5>Klip</h5>
-                            <input type="checkbox">
-                        </div>
-                        <div id="bookingformData">
-                            <h5>Farve</h5>
-                            <input type="checkbox">
-                        </div>
-                        <div id="bookingformData">
-                            <textarea type="text" id="text" name="Besked" placeholder="Besked..." rows="5"
-                                cols="50"></textarea>
-                        </div>
-                        <div id="formButtons">
-                            <input type="submit" value="Send" id="sendButton" class="button">
-                            <input type="reset" value="Nulstil" id="deleteButton" class="button">
-                            <input type="submit" value="Update" id="updateButton">
-                        </div>
-                    </form>
-                </div>
-                <div id="timetable">
-                    <h5>Tidsskema</h5>
-                    <table>
-                        <tr>
-                            <td>08:00</td>
-                            <td>09:00</td>
-                            <td>10:00</td>
-                        </tr>
-                        <tr>
-                            <td>11:00</td>
-                            <td>12:00</td>
-                            <td>13:00</td>
-                        </tr>
-                        <tr>
-                            <td>14:00</td>
-                            <td>15:00</td>
-                            <td>16:00</td>
-                        </tr>
-                        <tr>
-                            <td>17:00</td>
-                            <td>18:00</td>
-                            <td>19:00</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-
-            <p id="eventText"></p>
-
-            <button id="deleteButton">Delete</button>
-            <button id="closeButton">Close</button>
         </div>
 
         <div id="modalBackDrop"></div>
 
+        
 
 
 
-
+    </section>
+    <section id="userSection">
+        <div id="usersEventTableId">
+        </div>
     </section>
 
     <section id="section-footer">
