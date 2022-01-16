@@ -71,7 +71,7 @@
                 productName.innerHTML = product.name;
                 productCategory.innerHTML = product.category;
                 productdescription.innerHTML = product.description;
-                productPrice.innerHTML = product.price;
+                productPrice.innerHTML = "Pris: " + product.price;
 
 
                 productCard.appendChild(productImage)
@@ -173,8 +173,8 @@
                     productName.innerHTML = product.name;
                     productCategory.innerHTML = product.category;
                     productdescription.innerHTML = product.description;
-                    productPrice.innerHTML = product.price;
-                    salesPrice.textContent = product.salesPrice;
+                    productPrice.innerHTML = "Pris: " + product.price;
+                    salesPrice.textContent = "Tilbudspris: " + product.salesPrice;
 
                     productCard.appendChild(productImage)
                     productCard.appendChild(productName);

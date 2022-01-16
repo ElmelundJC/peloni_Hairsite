@@ -74,8 +74,8 @@
                 productName.textContent = product.name;
                 productCategory.textContent = product.category;
                 productdescription.textContent = product.description;
-                productPrice.textContent = product.price;
-                salesPrice.textContent = product.salesPrice;
+                productPrice.textContent = "Pris: " + product.price;
+                salesPrice.textContent = "Tilbudspris: " + product.salesPrice;
                 isActiveOffer.textContent = product.isActiveOffer;
 
 
