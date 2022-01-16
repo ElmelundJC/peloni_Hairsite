@@ -18,8 +18,6 @@ function openModal(date){
     clicked = date;
     document.getElementById("modalDate").value = date;
 
-
-    const timeRow = document.querySelectorAll("#timetable table tr td");
     const pickTime = document.getElementById("pickTime");
     const tableBody = document.querySelector('#timetable #tableBody');
     $('#tableBody').find("tr:gt(0)").remove();
@@ -32,10 +30,10 @@ function openModal(date){
         
         let textNode = document.createTextNode(times);
 
-        console.log(findEvents.length)
+        // console.log(findEvents.length)
         findEvents.forEach(e => {
             e.forEach(i => {
-                console.log(i);
+                // console.log(i);
                 if (i.date === clicked) {
 
                     if (times === i.timeSlot) {
@@ -293,10 +291,10 @@ async function loadUsersEvents() {
                 return `
                 <div id="userDiv">
                     <h3> Booking nr. ${count}</h3>
-                    <p> Date: ${num.date} </p>
-                    <p> Tidspunkt: ${num.timeSlot} </p>
-                    <p> Hårklip: ${cut} </p>
-                    <p> Farvning: ${color} </p>
+                    <p id="numDato"> Date: ${num.date} </p>
+                    <p id="numTid"> Tidspunkt: ${num.timeSlot} </p>
+                    <p id="numCut"> Hårklip: ${cut} </p>
+                    <p id="numColor"> Farvning: ${color} </p>
                     <button type="submit" class"button" id="deleteButton" onclick="deleteEvent()">Slet</button>
                 </div>
                 `;
@@ -307,7 +305,7 @@ async function loadUsersEvents() {
         // console.log(html);
         document.querySelector('#usersEventTableId').insertAdjacentHTML('afterbegin', html);
 
-
+        
     })
     .catch((error) => {
         console.log('Error: ', error);
@@ -315,9 +313,13 @@ async function loadUsersEvents() {
 }
 
 
+
+
 // SKAL FIKSES I MORGEN!
 async function deleteEvent(){
-    await fetch('/api/users/createEvent', {
+
+
+    await fetch('/api/users/deleteEvent', {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -328,6 +330,7 @@ async function deleteEvent(){
             hairCut: checkStateHairCut,
             color: checkStateColor,
             message: messageChosen,
+            
         }),
     })
     .then( response => response.json())
