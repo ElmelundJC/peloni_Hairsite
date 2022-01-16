@@ -25,23 +25,27 @@
         <br>
         <div class="row">
             <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <a href="/"><img src="../images/product1.jpg" alt="img"></a>
+                <a href="https://www.loreal.com/en/" target="_blank"><img src="../products/productImages/loreal.JPG"
+                        alt="img"></a>
             </div>
             <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <a href="/"><img src="../images/product2.jpg" alt="img"></a>
+                <a href="https://www.kerastase.dk/" target="_blank"><img src="../products/productImages/kerastase.JPG"
+                        alt="img"></a>
             </div>
             <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <a href="/"><img src="../images/product3.jpg" alt="img"></a>
+                <a href="https://kevinmurphy.dk/collections/all" target="_blank"><img
+                        src="../products/productImages/KevinMurhpy.JPG" alt="img"></a>
             </div>
             <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5">
-                <a href="/"><img src="../images/product4.jpg" alt="img"></a>
+                <a href="https://hairrehablondon.com/" target="_blank"><img
+                        src="../products/productImages/HairRehab.JPG" alt="img"></a>
             </div>
         </div>
     </section>
 
     <section class="product">
         <h2 class="display-4 text-center text-white">Produkter</h2>
-
+        <h3 class="display-6 text-center text-white">Disse produkter kan købes i salonen</h3>
         <div class="row" id="cardRow">
 
             <div class="col-12 col-sm-6 col-lg-3 d-flex flex-column align-items-center mb-5" id="newProduct"
@@ -73,7 +77,15 @@
                         <h5 class="modal-title text-center" id="exampleModalLabel">Indtast product information</h5>
                     </div>
                     <div class="modal-body">
+                        <!-- <img class="card-img-top" src="../images/product1.jpg" height="185px" width="185px"
+                            alt="Card image cap">
+                        <p></p>
+                        <button type="button" class="btn btn-secondary" onclick="importData()">Vælg
+                            billede</button> -->
                         <form action="admin/productPage" method="POST" id="newProductForm">
+                            <div>
+                                <input id="editImg" type="file" name="productImage">
+                            </div>
                             <div class="mb-3">
                                 <label for="name" class="form-label">Navn</label>
                                 <input type="text" class="form-control" id="name" name="name">
@@ -90,6 +102,14 @@
                                 <label for="price" class="form-label">Pris</label>
                                 <input type="text" class="form-control" id="price" name="price">
                             </div>
+                            <div class="mb-3">
+                                <label for="salesPrice" class="form-label">Udsalgspris</label>
+                                <input type="text" class="form-control" id="salesPrice" name="salesPrice">
+                            </div>
+                            <div class="mb-3">
+                                <label for="isActiveOffer" class="form-label">På tilbud</label>
+                                <input type="checkbox" class="form-control" id="isActiveOffer" name="isActiveOffer">
+                            </div>
                             <button type="submit" class="btn btn-primary" id="submitBtn">Gem Produkt</button>
                         </form>
                     </div>
@@ -105,17 +125,13 @@
                 <div class="modal-content">
                     <div class="modal-header d-block">
                         <h5 class="modal-title" id="modalTitle">Opdater produktinformation</h5>
-                        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button> -->
                     </div>
                     <div class="modal-body">
-                        <img class="card-img-top" src="../images/product1.jpg" height="185px" width="185px"
-                            alt="Card image cap">
-                        <p></p>
-                        <button type="button" class="btn btn-secondary" onclick="importData()">Vælg
-                            billede</button>
+
                         <form id="updateForm" action="" method="POST">
+                            <div>
+                                <input id="editImg" type="file" name="productImage">
+                            </div>
                             <div class="form-group">
                                 <label for="name">Navn</label>
                                 <input type="text" name="name" class="form-control" id="editName" required>
@@ -133,6 +149,18 @@
                                 <label for="price">Pris</label>
                                 <input type="text" name="price" class="form-control" id="editPrice" required>
                             </div>
+                            <div class="mb-3">
+                                <label for="salesPrice" class="form-label">Udsalgspris</label>
+                                <input type="text" class="form-control" id="editSalesPrice" name="salesPrice">
+                            </div>
+                            <!-- <div class="mb-3">
+                                <label for="isActiveOffer" class="form-label">På tilbud</label>
+                                <input type="text" class="form-control" id="editIsActiveOffer" name="isActiveOffer">
+                            </div> -->
+                            <div class="form-group">
+                                <label for="isActiveOffer">På tilbud</label>
+                                <input type="text" name="isActiveOffer" class="form-control" id="editIsActiveOffer">
+                            </div>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Luk</button>
                             <button type="submit" id="saveModalButton" class="btn btn-primary">Gem
                                 ændringer</button>
@@ -148,27 +176,13 @@
     <div>
     </div>
 
-
-    <!-- <script>
-        const updateForm = document.getElementById("updateForm")
-        const saveBtn = document.getElementById("saveModalButton");
-        saveBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            console.log("Clicked")
-
-            updateProductById()
-        })
-    </script> -->
-
-
-
-    <section>
+    <!-- <section>
         <footer id="footer" class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             <div class="container">
                 <p class="text-white">Copyright &copy; CJ Agency 2021</p>
             </div>
         </footer>
-    </section>
+    </section> -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
     <!-- <script src=" https://code.jquery.com/jquery-3.2.1.slim.min.js"

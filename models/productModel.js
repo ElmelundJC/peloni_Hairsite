@@ -22,9 +22,18 @@ const productSchema = mongoose.Schema({
         type: Number,
         price: Number
     },
+    salesPrice: {
+        type: Number,
+        price: Number
+    },
+    isActiveOffer: {
+        type: String,
+        default: false
+    },
     productImage: {
         type: String,
-
+        default: null,
+        //data: Buffer
     }
 }, {
     timestamps: true

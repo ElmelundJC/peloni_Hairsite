@@ -2,7 +2,7 @@ const express = require("express");
 const router = new express.Router()
 const Product = require("../models/productModel");
 const mongoose = require('mongoose');
-
+const multer = require("multer");
 const bodyParser = require('body-parser');
 
 router.use(express.urlencoded({ extended: true }));
@@ -40,14 +40,9 @@ router.get("/admin/productPage", async (req, res) => {
 
 // Get product
 router.get("/products/:id", async (req, res) => {
-    // id = req.params.id
-    // if (!mongoose.Types.ObjectId.isValid(id)) return false;
     try {
         const product = await Product.findOne({ _id: req.params.id });
-        // try this above: 
-        //const product = await Product.findById(req.params.id);
         console.log(product);
-
 
         if (!product) {
             return res.status(404).send();
@@ -60,12 +55,10 @@ router.get("/products/:id", async (req, res) => {
 
 // Update product
 router.post("/products/:id", async (req, res) => {
-    // id = req.params.id
-    // if (!mongoose.Types.ObjectId.isValid(id)) return false;
     const updates = Object.keys(req.body);
     try {
         const product = await Product.findOne({ _id: req.params.id });
-        console.log(product);
+        //console.log(product);
 
         if (!product) {
             return res.status(404).send();
@@ -85,11 +78,9 @@ router.post("/products/:id", async (req, res) => {
 
 // Delete product
 router.delete("/admin/products/:id", async (req, res) => {
-    id = req.params.id
-    if (!mongoose.Types.ObjectId.isValid(id)) return false;
     try {
         const product = await Product.findOneAndDelete({ _id: req.params.id });
-        console.log(product);
+        //console.log(product);
 
         if (!product) {
             res.status(404).send();
@@ -101,5 +92,86 @@ router.delete("/admin/products/:id", async (req, res) => {
     }
 });
 
+// Image upload
+
+const multerStorage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "public/products/productImages");
+    },
+    filename: function (req, file, cb) {
+        const ext = file.mimetype.split("/")[1];
+        cb(null, `produkt-${req.params.id.trim()}-${Date.now()}.${ext}`)
+    }
+});
+
+const multerFilter = (req, file, cb) => {
+    if (file.mimetype.startsWith("image")) {
+        cb(null, true)
+    } else {
+        cb(new Error("Please upload an image!", 400), false)
+    }
+}
+
+const upload = multer({
+    storage: multerStorage,
+    fileFilter: multerFilter,
+    limits: {
+        fileSize: 1000000
+    },
+})
+
+router.post("/productImage/:id", upload.single("productImage"), async (req, res) => {
+    console.log("post image" + 1)
+    console.log(req.file)
+    console.log(req.params.id.trim())
+    try {
+        //console.log(req.file.buffer)
+        await Product.findByIdAndUpdate(req.params.id.trim(), { productImage: req.file.originalname });
+        res.send()
+    } catch (e) {
+        console.log(e)
+    }
+});
+
+router.delete("/productImage/:id", async (req, res) => {
+    console.log("delete" + 1)
+    //console.log(req.body)
+    console.log(req.params.id.trim())
+    try {
+        //console.log(req.file.buffer)
+        await Product.findByIdAndUpdate(req.params.id.trim(), { productImage: null });
+        res.send()
+    } catch (e) {
+        console.log(e)
+    }
+});
+
+router.get("/products/:id/productImage", async (req, res) => {
+    console.log("get" + 1)
+    //console.log(req.file)
+    console.log(req.params.id.trim())
+
+    try {
+        const product = await Product.findOne({ _id: req.params.id.trim() });
+        //console.log(product)
+
+        if (!product || !product.productImage) {
+            throw new Error()
+        }
+
+        //res.set("Content-Type", "image/jpg")
+        //res.send({ productImage: req.file.originalname })
+        //console.log()
+        res.send(product.productImage)
+    } catch (e) {
+        res.status(404).send()
+    }
+})
+
+router.post("/upload", upload.single("productImage"), (req, res) => {
+    console.log(req.file)
+    console.log(req.body.id)
+    res.send()
+});
 
 module.exports = router;

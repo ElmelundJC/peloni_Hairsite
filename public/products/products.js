@@ -25,22 +25,17 @@
 
                 let productImage = document.createElement("img");
                 productImage.setAttribute("class", "card-img-top")
-                productImage.setAttribute("src", "../images/product1.jpg");
+                productImage.setAttribute("src", "/products/productImages/" + product.productImage)
 
-                productCard.appendChild(productImage)
+
 
                 let productInfo = document.createElement("ul");
                 productInfo.setAttribute("id", "productInfo");
                 productInfo.setAttribute("class", "list-group");
 
                 let productName = document.createElement("li")
-                // productName.setAttribute("href", "#")
-                // productName.setAttribute("data-toggle", "modal")
-                // productName.setAttribute("data-target", "#modal")
                 productName.setAttribute("class", "list-group-item")
                 productName.setAttribute("id", "product-name")
-                //productName.setAttribute("onclick", "getProductById('" + product._id + "')")
-
 
                 let productCategory = document.createElement("li");
                 productCategory.setAttribute("class", "list-group-item")
@@ -54,6 +49,14 @@
                 productPrice.setAttribute("class", "list-group-item")
                 productPrice.setAttribute("id", "product-price");
 
+                let salesPrice = document.createElement("li");
+                salesPrice.setAttribute("class", "list-group-item")
+                salesPrice.setAttribute("id", "sales-price");
+
+                let isActiveOffer = document.createElement("li");
+                isActiveOffer.setAttribute("class", "list-group-item")
+                isActiveOffer.setAttribute("id", "isActiveOffer");
+
                 let deleteBtn = document.createElement("button")
                 deleteBtn.setAttribute("class", "btn btn-danger")
                 deleteBtn.setAttribute("id", "deleteBtn")
@@ -65,21 +68,24 @@
                 updateBtn.setAttribute("class", "btn btn-primary")
                 updateBtn.setAttribute("data-toggle", "modal")
                 updateBtn.setAttribute("data-target", "#modal")
-                // updateBtn.setAttribute("onclick", "updateProductById('" + product._id + "')")
                 updateBtn.setAttribute("onclick", "getProductById('" + product._id + "')")
                 updateBtn.textContent = "Opdater produkt"
 
                 productName.textContent = product.name;
                 productCategory.textContent = product.category;
                 productdescription.textContent = product.description;
-                productPrice.textContent = product.price;
+                productPrice.textContent = "Pris: " + product.price;
+                salesPrice.textContent = "Tilbudspris: " + product.salesPrice;
+                isActiveOffer.textContent = product.isActiveOffer;
 
 
-
+                productCard.appendChild(productImage)
                 productCard.appendChild(productName);
                 productCard.appendChild(productCategory);
                 productCard.appendChild(productdescription);
                 productCard.appendChild(productPrice);
+                productCard.appendChild(salesPrice);
+                productCard.appendChild(isActiveOffer);
                 productCard.appendChild(updateBtn);
                 productCard.appendChild(deleteBtn);
 
@@ -108,6 +114,8 @@ function getProductById(id) {
             $("#editCategory").val(product.category);
             $("#editDescription").val(product.description);
             $("#editPrice").val(product.price);
+            $("#editSalesPrice").val(product.salesPrice);
+            $("#editIsActiveOffer").val(product.isActiveOffer);
 
             $("#updateForm").attr("action", "/products/" + product._id);
         }
@@ -121,8 +129,9 @@ function getProductById(id) {
 
 // Delete a project by its ID 
 function deleteProductById(id) {
-
+    console.log(1)
     if (confirm("Er du sikker!")) {
+        console.log(2)
         try {
             $.ajax({
                 method: "DELETE",
@@ -161,7 +170,18 @@ function updateProductById(id) {
     }
 }
 
-
+function importImage(id) {
+    try {
+        $.ajax({
+            method: "GET",
+            url: "/products/" + id + "/productImage/",
+            dataType: "json"
+        }).done()
+        //location.reload()
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 function importData() {

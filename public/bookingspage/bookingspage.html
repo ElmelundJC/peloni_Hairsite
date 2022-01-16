@@ -47,7 +47,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <a href="/" class="navbar-brand"><img src="../images/clipart658178.png" width="60" height="60" alt=""></a>
+                <a href="/" class="navbar-brand"><img src="../images/clipart658178.png" width="60" height="60"
+                        alt=""></a>
                 <ul class="navbar-nav" id="navScrollspy">
                     <li class="nav-item">
                         <a class="nav-link" href="/about">Om Peloni</a>
@@ -74,7 +75,7 @@
             </div>
         </nav>
     </section>
-    
+
     <section id="section-main">
         <div id="container">
             <div id="header">
@@ -152,7 +153,7 @@
 
         <div id="modalBackDrop"></div>
 
-        
+
 
 
 
@@ -171,12 +172,12 @@
     </section>
     <script>
         let logoutBtn = document.querySelector('.logout-btn').addEventListener('click', logoutFnk);
-   
-   async function logoutFnk(){
-        await fetch('/api/users/logout', {
-            method: 'GET',
-        });
-    }; 
+
+        async function logoutFnk() {
+            await fetch('/api/users/logout', {
+                method: 'GET',
+            });
+        }; 
     </script>
     <script src="../bookingspage/script.js"></script>
 </body>

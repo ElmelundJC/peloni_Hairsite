@@ -18,6 +18,7 @@ const authController = require('./controllers/authController');
 
 const productRouter = require("./routes/productRoutes");
 const serviceRouter = require("./routes/serviceRoutes");
+const messageRouter = require("./routes/messageRoutes");
 
 
 
@@ -35,7 +36,7 @@ const fs = require("fs");
 // Development logging
 console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'development') {
-  app.use(morgan('dev'));
+    app.use(morgan('dev'));
 }
 
 app.use(cors());
@@ -73,6 +74,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(productRouter);
 app.use(serviceRouter);
+app.use(messageRouter);
 
 // error handling middleware
 app.use((err, req, res, next) => {
@@ -91,6 +93,7 @@ const infopage = fs.readFileSync(__dirname + "/public/infopage/infopage.html", "
 const userloginpage = fs.readFileSync(__dirname + "/public/userLogin/userLogin.html", "utf-8");
 const userSignuppage = fs.readFileSync(__dirname + "/public/userSignUp/userSignup.html", "utf-8");
 const bookingpage = fs.readFileSync(__dirname + "/public/bookingspage/bookingspage.html", "utf-8");
+const footer = fs.readFileSync(__dirname + "/public/footer/footer.html", "utf-8");
 
 // Admin views
 const adminLogin = fs.readFileSync(__dirname + "/public/adminLogin/adminLogin.html", "utf-8");
@@ -104,23 +107,23 @@ const adminBookingpage = fs.readFileSync(__dirname + "/public/bookingspage/admin
 
 // Customer routes
 app.get("/", (req, res) => {
-    res.send(navbar + frontpage);
+    res.send(navbar + frontpage + footer);
 });
 
 app.get("/about", (req, res) => {
-    res.send(navbar + about);
+    res.send(navbar + about + footer);
 })
 
 app.get("/services", (req, res) => {
-    res.send(navbar + services);
+    res.send(navbar + services + footer);
 })
 
 app.get("/productPage", (req, res) => {
-    res.send(navbar + products);
+    res.send(navbar + products + footer);
 })
 
 app.get("/info", (req, res) => {
-    res.send(navbar + infopage);
+    res.send(navbar + infopage + footer);
 });
 
 app.get('/userLogin', (req, res) => {
@@ -164,7 +167,7 @@ app.get("/adminInfo", authController.protect, authController.restrictTo('admin')
 });
 
 app.get("/adminBooking", (req, res) => {
-    res.send(adminNavbar + adminBookingpage);
+    res.send(adminNavbar + adminBookingpage + footer);
 });
 
 
@@ -177,9 +180,9 @@ app.all('*', (req, res, next) => {
     // const err = new Error(`Can't find ${req.originalUrl} on this server!`);
     // err.status = 'fail!';
     // err.statusCode = 404;
-  
-    next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404) );
-  });
+
+    next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
+});
 
 app.use(globalErrorHandler);
 
