@@ -40,7 +40,23 @@
                 </li>
             </ul>
         </div>
+        <div>
+            <ul class="navbar-nav" id="navScrollspy">
+                <li class="nav-item">
+                    <a class="nav-link logout-btn" href="/">Logout</a>
+                </li>
+        </div>
     </nav>
+
+    <script>
+        let logoutBtn = document.querySelector('.logout-btn').addEventListener('click', logoutFnk);
+
+        async function logoutFnk() {
+            await fetch('/api/users/logout', {
+                method: 'GET',
+            });
+        }; 
+    </script>
 
 </body>
 
